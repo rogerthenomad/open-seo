@@ -79,6 +79,9 @@ export class OnboardingChatAgent extends AIChatAgent {
     ...args: Parameters<AIChatAgent["persistMessages"]>
   ): Promise<void> {
     const maxAttempts = 3;
+    // The catch path continues into the next attempt; only the final attempt
+    // rethrows, so the loop genuinely iterates.
+    // oxlint-disable-next-line no-unreachable-loop
     for (let attempt = 1; ; attempt++) {
       try {
         await super.persistMessages(...args);
