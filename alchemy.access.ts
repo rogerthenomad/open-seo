@@ -14,8 +14,8 @@ import * as Effect from "effect/Effect";
 
 const WORKER_PREFIX = "run-your-seo";
 
-// The one stage that adopts your-domain.com's live hosted resources (unsuffixed
-// names, app.your-domain.com domain, Postgres). Deliberately not "prod" so a
+// The one stage that adopts seo.capturethatmedia.com's live hosted resources (unsuffixed
+// names, seo-app.capturethatmedia.com domain, Postgres). Deliberately not "prod" so a
 // self-hoster's stage name can't collide with the adoption path.
 export const HOSTED_PROD_STAGE = "hosted-prod";
 

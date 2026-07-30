@@ -7,7 +7,7 @@ Host Run Your SEO on Cloudflare for internet-facing self-hosting across multiple
 
 ## 1) Deploy from GitHub
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rogerthenomad/Run-Your-SEO)
+> The one click Deploy to Cloudflare button only works for public repositories, and this repository is private. Use the manual deploy steps below.
 
 Click the deploy button. There are lots of fields on the deploy form, but you only need to do the below steps.
 

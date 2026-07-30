@@ -9,7 +9,7 @@ Capture That Media PRIVACY POLICY
 
 Capture That Media (the “Company”) is committed to maintaining robust privacy protections for its users. Our Privacy Policy (“Privacy Policy”) is designed to help you understand how we collect, use and safeguard the information you provide to us and to assist you in making informed decisions when using our Service.
 
-For purposes of this Agreement, “Site” refers to the Company’s website, which can be accessed at https://your-domain.com/.  
+For purposes of this Agreement, “Site” refers to the Company’s website, which can be accessed at https://seo.capturethatmedia.com/.  
 “Service” refers to the Company’s hosted Run Your SEO product accessed via the Site.  
 The terms “we,” “us,” and “our” refer to the Company.  
 “You” refers to you, as a user of our Site or our Service.  

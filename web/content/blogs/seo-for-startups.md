@@ -56,7 +56,7 @@ The screenshots below show what this data looks like in Run Your SEO.
 
 Competitor research gives founders a fast read on market demand.
 
-With a tool like [Run Your SEO](https://your-domain.com/), you can enter a competitor's domain and see which keywords it ranks for, which pages are ranking, and where the estimated traffic seems to come from.
+With a tool like [Run Your SEO](https://seo.capturethatmedia.com/), you can enter a competitor's domain and see which keywords it ranks for, which pages are ranking, and where the estimated traffic seems to come from.
 
 That can shape your strategy. If a competitor gets traffic from a specific page type, buyers may care about that topic more than you realized. It can also reveal use cases, niches, or workflows that fit your product but do not show up in a few customer calls.
 
@@ -163,4 +163,4 @@ SEO is worth understanding as a founder because it shows what the market is aski
 
 Used well, it becomes both a research tool and a compounding distribution channel. Understand the customer, make useful pages, keep your site healthy, and give people a reason to talk about your company.
 
-If you want to explore this data yourself, [Run Your SEO](https://your-domain.com/) is an affordable SEO tool built by a founder for founders, without the usual bloat of tools made for SEO power users.
+If you want to explore this data yourself, [Run Your SEO](https://seo.capturethatmedia.com/) is an affordable SEO tool built by a founder for founders, without the usual bloat of tools made for SEO power users.

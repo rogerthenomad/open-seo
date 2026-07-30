@@ -14,20 +14,20 @@ Most Google Search Console (GSC) MCP servers are open source, but they take a lo
 The hosted MCP server URL is:
 
 ```txt
-https://app.your-domain.com/mcp
+https://seo-app.capturethatmedia.com/mcp
 ```
 
 ### Claude Code
 
 ```bash
-claude mcp add --transport http --scope user runyourseo https://app.your-domain.com/mcp
+claude mcp add --transport http --scope user runyourseo https://seo-app.capturethatmedia.com/mcp
 ```
 
 ### Claude Desktop
 
 1. Open Settings → Connectors.
 2. Click **Add custom connector**.
-3. Paste `https://app.your-domain.com/mcp`.
+3. Paste `https://seo-app.capturethatmedia.com/mcp`.
 
 ### Cursor
 
@@ -38,7 +38,7 @@ claude mcp add --transport http --scope user runyourseo https://app.your-domain.
 {
   "mcpServers": {
     "runyourseo": {
-      "url": "https://app.your-domain.com/mcp"
+      "url": "https://seo-app.capturethatmedia.com/mcp"
     }
   }
 }
@@ -47,10 +47,10 @@ claude mcp add --transport http --scope user runyourseo https://app.your-domain.
 ### Codex CLI
 
 ```bash
-codex mcp add runyourseo --url https://app.your-domain.com/mcp
+codex mcp add runyourseo --url https://seo-app.capturethatmedia.com/mcp
 ```
 
-Any other MCP client works the same way: add `https://app.your-domain.com/mcp` as a remote server and sign in. Full setup and troubleshooting live in the [MCP docs](/docs/mcp).
+Any other MCP client works the same way: add `https://seo-app.capturethatmedia.com/mcp` as a remote server and sign in. Full setup and troubleshooting live in the [MCP docs](/docs/mcp).
 
 ### The DIY way (every other GSC MCP)
 

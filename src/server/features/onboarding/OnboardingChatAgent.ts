@@ -117,7 +117,7 @@ export class OnboardingChatAgent extends AIChatAgent {
       // — Autumn rejects an empty string. Mirrors the scheduled rank-check job's
       // user-less metering, but onboarding-specific so it's identifiable in
       // Autumn logs.
-      userEmail: "system-onboarding@your-domain.com",
+      userEmail: "system-onboarding@seo.capturethatmedia.com",
       organizationId,
       projectId: project.id,
     };

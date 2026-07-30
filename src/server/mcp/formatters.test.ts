@@ -13,10 +13,10 @@ describe("mcpResponse", () => {
 
     const withMeta = mcpResponse({
       text: "hi",
-      meta: { url: "https://app.your-domain.com/p/1", projectId: "1" },
+      meta: { url: "https://seo-app.capturethatmedia.com/p/1", projectId: "1" },
     });
     expect(withMeta._meta).toEqual({
-      url: "https://app.your-domain.com/p/1",
+      url: "https://seo-app.capturethatmedia.com/p/1",
       projectId: "1",
     });
   });
@@ -25,13 +25,13 @@ describe("mcpResponse", () => {
     const result = mcpResponse({
       text: "hi",
       meta: {
-        url: "https://app.your-domain.com",
+        url: "https://seo-app.capturethatmedia.com",
         organizationId: undefined,
         creditsCharged: 0,
       },
     });
     expect(result._meta).toEqual({
-      url: "https://app.your-domain.com",
+      url: "https://seo-app.capturethatmedia.com",
       creditsCharged: 0,
     });
     expect(result._meta).not.toHaveProperty("organizationId");
@@ -49,7 +49,7 @@ describe("mcpResponse", () => {
     const result = mcpResponse({
       text: "hi",
       meta: {
-        url: "https://app.your-domain.com/p/1",
+        url: "https://seo-app.capturethatmedia.com/p/1",
         projectId: "1",
         creditsRemaining: 100,
       },
@@ -59,13 +59,13 @@ describe("mcpResponse", () => {
     expect(result.structuredContent).toEqual({
       foo: "bar",
       meta: {
-        url: "https://app.your-domain.com/p/1",
+        url: "https://seo-app.capturethatmedia.com/p/1",
         projectId: "1",
         creditsRemaining: 100,
       },
     });
     expect(result._meta).toEqual({
-      url: "https://app.your-domain.com/p/1",
+      url: "https://seo-app.capturethatmedia.com/p/1",
       projectId: "1",
       creditsRemaining: 100,
     });
@@ -74,11 +74,11 @@ describe("mcpResponse", () => {
   it("uses metadata as structuredContent when no data payload is provided", () => {
     const result = mcpResponse({
       text: "hi",
-      meta: { url: "https://app.your-domain.com" },
+      meta: { url: "https://seo-app.capturethatmedia.com" },
     });
 
     expect(result.structuredContent).toEqual({
-      meta: { url: "https://app.your-domain.com" },
+      meta: { url: "https://seo-app.capturethatmedia.com" },
     });
   });
 });

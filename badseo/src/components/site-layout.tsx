@@ -8,7 +8,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           BADSEO
         </a>
         <span className="nav-links">
-          <a href="https://your-domain.com">Run Your SEO</a>
+          <a href="https://seo.capturethatmedia.com">Run Your SEO</a>
           <a href="https://github.com/rogerthenomad/Run-Your-SEO">GitHub</a>
         </span>
       </nav>
@@ -21,7 +21,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <span className="foot-links">
             <a href="/#issues">All issues</a>
             <a href="https://github.com/rogerthenomad/Run-Your-SEO">GitHub</a>
-            <a href="https://your-domain.com">Run Your SEO</a>
+            <a href="https://seo.capturethatmedia.com">Run Your SEO</a>
             <a href="/privacy">Privacy</a>
             <button
               className="footer-button"

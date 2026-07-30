@@ -92,7 +92,7 @@ Run Your SEO exposes an MCP server so compatible AI clients can call Run Your SE
 Hosted MCP endpoint:
 
 ```txt
-https://app.your-domain.com/mcp
+https://seo-app.capturethatmedia.com/mcp
 ```
 
 The first MCP connection sends the user through Run Your SEO login and authorization. After authorization, the MCP client can call Run Your SEO tools with the project context and account scopes the user approved.

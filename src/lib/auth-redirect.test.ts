@@ -17,7 +17,7 @@ const oauthSearch = new URLSearchParams({
   state: "state-123",
   code_challenge: "challenge-123",
   code_challenge_method: "S256",
-  resource: "https://app.your-domain.com/mcp",
+  resource: "https://seo-app.capturethatmedia.com/mcp",
   exp: "1778271800",
   sig: "signed-value",
 }).toString();
@@ -92,7 +92,7 @@ describe("auth redirect helpers", () => {
     expect(redirect).toContain("code_challenge=challenge-123");
     expect(redirect).toContain("code_challenge_method=S256");
     expect(redirect).toContain(
-      "resource=https%3A%2F%2Fapp.your-domain.com%2Fmcp",
+      "resource=https%3A%2F%2Fseo-app.capturethatmedia.com%2Fmcp",
     );
     expect(redirect).toContain("exp=1778271800");
     expect(redirect).toContain("sig=signed-value");

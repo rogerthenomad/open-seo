@@ -9,8 +9,8 @@ Alchemy-managed Cloudflare Access boundary.
   `run-your-seo-<stage>.<WORKERS_SUBDOMAIN>`.
 - One persistent Access application protects
   `run-your-seo-*.<WORKERS_SUBDOMAIN>` before any preview Worker exists.
-- Production uses the unsuffixed `run-your-seo` Worker on `app.your-domain.com` and
-  `www.app.your-domain.com`. It does not match the preview wildcard and is not
+- Production uses the unsuffixed `run-your-seo` Worker on `seo-app.capturethatmedia.com` and
+  `www.seo-app.capturethatmedia.com`. It does not match the preview wildcard and is not
   placed behind preview Access.
 - A separate persistent Alchemy stack manages the shared Access boundary. A
   failed preview deploy or teardown therefore cannot remove the gate protecting

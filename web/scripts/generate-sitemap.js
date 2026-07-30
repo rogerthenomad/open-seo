@@ -12,7 +12,7 @@ const DIST_DIR = join(__dirname, "../dist/client");
 const BLOG_CONTENT_DIR = join(__dirname, "../content/blogs");
 const DOCS_CONTENT_DIR = join(__dirname, "../content/docs");
 
-const DEFAULT_SITE_URL = "https://your-domain.com";
+const DEFAULT_SITE_URL = "https://seo.capturethatmedia.com";
 const SITE_URL = (process.env.SITE_URL ?? DEFAULT_SITE_URL).replace(/\/+$/, "");
 
 const STATIC_PATHS = [

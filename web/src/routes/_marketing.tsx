@@ -152,7 +152,7 @@ function MarketingLayout() {
                 Contact
               </a>
               <a
-                href="https://app.your-domain.com/sign-in"
+                href="https://seo-app.capturethatmedia.com/sign-in"
                 className="hidden h-9 items-center rounded-full border border-[#eedbec] px-4 text-sm font-medium text-neutral-900 transition-colors hover:border-[#711c90] md:inline-flex"
               >
                 Sign in
@@ -164,14 +164,14 @@ function MarketingLayout() {
             <div className="absolute left-0 right-0 top-full z-30 mt-3 rounded-2xl border border-[#eedbec] bg-white p-3 shadow-xl shadow-fuchsia-900/10 md:hidden">
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="https://app.your-domain.com/sign-in"
+                  href="https://seo-app.capturethatmedia.com/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-11 items-center justify-center rounded-xl bg-[#711c90] px-3 text-sm font-semibold text-white transition-colors hover:bg-[#5d1777]"
                 >
                   Try Run Your SEO
                 </a>
                 <a
-                  href="https://app.your-domain.com/sign-in"
+                  href="https://seo-app.capturethatmedia.com/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-11 items-center justify-center rounded-xl border border-[#eedbec] px-3 text-sm font-semibold text-neutral-800 transition-colors hover:border-[#711c90] hover:bg-[#fdf3fc]"
                 >

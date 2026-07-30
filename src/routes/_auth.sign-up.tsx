@@ -169,7 +169,7 @@ function SignUpPage() {
               <p className="text-sm leading-relaxed text-base-content/60">
                 By signing up, you agree to our{" "}
                 <a
-                  href="https://your-domain.com/terms-and-conditions"
+                  href="https://seo.capturethatmedia.com/terms-and-conditions"
                   target="_blank"
                   rel="noreferrer"
                   className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"
@@ -178,7 +178,7 @@ function SignUpPage() {
                 </a>{" "}
                 and{" "}
                 <a
-                  href="https://your-domain.com/privacy"
+                  href="https://seo.capturethatmedia.com/privacy"
                   target="_blank"
                   rel="noreferrer"
                   className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"

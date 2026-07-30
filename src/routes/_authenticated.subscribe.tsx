@@ -255,7 +255,7 @@ function SubscribePage() {
           <li className="-mt-1 pl-6 text-xs">
             <a
               className="text-base-content/60 underline decoration-base-content/40 decoration-dotted underline-offset-4 transition-colors hover:text-base-content"
-              href="https://your-domain.com/pricing"
+              href="https://seo.capturethatmedia.com/pricing"
               target="_blank"
               rel="noreferrer"
               onClick={() =>

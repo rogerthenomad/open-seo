@@ -65,7 +65,7 @@ export async function runScheduledRankChecks(env: Env) {
         projectId: config.projectId,
         billingCustomer: {
           userId: "system",
-          userEmail: "system@your-domain.com",
+          userEmail: "system@seo.capturethatmedia.com",
           organizationId: config.organizationId,
           projectId: config.projectId,
         },

@@ -8,19 +8,19 @@ Run Your SEO MCP lets compatible AI clients call Run Your SEO tools for keyword 
 The hosted MCP server URL is:
 
 ```txt
-https://app.your-domain.com/mcp
+https://seo-app.capturethatmedia.com/mcp
 ```
 
 The first connection sends you through Run Your SEO login. After authorization, your MCP client can call Run Your SEO tools with the project context and account scopes you approved.
 
-For the most current setup UI and a copyable endpoint, open [AI & MCP in Run Your SEO](https://app.your-domain.com/ai).
+For the most current setup UI and a copyable endpoint, open [AI & MCP in Run Your SEO](https://seo-app.capturethatmedia.com/ai).
 
 ## Claude Code
 
 Use user scope to make Run Your SEO available across projects. Use local scope for the current repository.
 
 ```bash
-claude mcp add --transport http --scope user runyourseo https://app.your-domain.com/mcp
+claude mcp add --transport http --scope user runyourseo https://seo-app.capturethatmedia.com/mcp
 ```
 
 After adding the server, approve the Run Your SEO login when prompted.
@@ -29,7 +29,7 @@ After adding the server, approve the Run Your SEO login when prompted.
 
 1. Open Settings -> Connectors.
 2. Click Add custom connector.
-3. Paste `https://app.your-domain.com/mcp`.
+3. Paste `https://seo-app.capturethatmedia.com/mcp`.
 4. Approve the Run Your SEO login when prompted.
 
 Claude Desktop custom connectors require a Claude plan that supports custom connectors.
@@ -44,7 +44,7 @@ Claude Desktop custom connectors require a Claude plan that supports custom conn
 {
   "mcpServers": {
     "runyourseo": {
-      "url": "https://app.your-domain.com/mcp"
+      "url": "https://seo-app.capturethatmedia.com/mcp"
     }
   }
 }
@@ -57,7 +57,7 @@ Claude Desktop custom connectors require a Claude plan that supports custom conn
 Run this in your terminal:
 
 ```bash
-codex mcp add runyourseo --url https://app.your-domain.com/mcp
+codex mcp add runyourseo --url https://seo-app.capturethatmedia.com/mcp
 ```
 
 Approve the login when prompted.
@@ -66,7 +66,7 @@ Approve the login when prompted.
 
 1. Open Settings -> Integrations & MCP.
 2. Click Add your own.
-3. Paste `https://app.your-domain.com/mcp`.
+3. Paste `https://seo-app.capturethatmedia.com/mcp`.
 4. Approve the Run Your SEO login when prompted.
 
 ## Available tools
@@ -104,7 +104,7 @@ Start with one focused workflow instead of asking your agent to "do SEO" broadly
 
 ## Troubleshooting
 
-If your client cannot connect, check that the server URL is exactly `https://app.your-domain.com/mcp`.
+If your client cannot connect, check that the server URL is exactly `https://seo-app.capturethatmedia.com/mcp`.
 
 If authorization fails, disconnect the Run Your SEO server in your client, add it again, and repeat the login flow.
 

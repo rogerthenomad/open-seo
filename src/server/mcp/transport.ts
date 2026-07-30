@@ -22,10 +22,10 @@ function createRunYourSeoMcpServer() {
       version: "0.0.11",
       description:
         "SEO research tools for AI agents: keyword research and metrics, SERP and local SERP results, domain and backlink analysis, rank tracking, and Google Search Console performance.",
-      websiteUrl: "https://your-domain.com",
+      websiteUrl: "https://seo.capturethatmedia.com",
       icons: [
         {
-          src: "https://your-domain.com/android-chrome-512x512.png",
+          src: "https://seo.capturethatmedia.com/android-chrome-512x512.png",
           mimeType: "image/png",
           sizes: ["512x512"],
         },

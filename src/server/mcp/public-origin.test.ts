@@ -23,7 +23,7 @@ describe("getPublicOrigin", () => {
 
   it("ignores forwarded hosts when the request is already public https", () => {
     const request = new Request(
-      "https://app.your-domain.com/api/oauth/consent",
+      "https://seo-app.capturethatmedia.com/api/oauth/consent",
       {
         headers: {
           "x-forwarded-proto": "https",
@@ -32,7 +32,9 @@ describe("getPublicOrigin", () => {
       },
     );
 
-    expect(getPublicOrigin(request)).toBe("https://app.your-domain.com");
+    expect(getPublicOrigin(request)).toBe(
+      "https://seo-app.capturethatmedia.com",
+    );
   });
 });
 

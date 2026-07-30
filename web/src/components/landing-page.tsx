@@ -12,7 +12,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { featurePages } from "@/lib/feature-pages";
 import "./landing-page.css";
 
-const SIGNUP_URL = "https://app.your-domain.com/sign-up";
+const SIGNUP_URL = "https://seo-app.capturethatmedia.com/sign-up";
 const SUPPORT_URL = "https://www.capturethatmedia.com/contact";
 const CTM_URL = "https://www.capturethatmedia.com";
 const CTM_PHONE = "(210) 934-1975";
@@ -334,7 +334,7 @@ function McpSection() {
                 {"\n"}
                 <span className="t-accent">↳</span>
                 <span className="t-dim"> View data in app: </span>
-                <span className="t-bright">app.your-domain.com/keywords</span>
+                <span className="t-bright">seo-app.capturethatmedia.com/keywords</span>
               </code>
             </pre>
           </div>

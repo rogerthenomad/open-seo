@@ -6,6 +6,10 @@ Run Your SEO is the SEO platform Capture That Media runs for its own clients. Ke
 
 Built and maintained by Roger Wong Won and the Capture That Media team in San Antonio, Texas.
 
+- Marketing site: [seo.capturethatmedia.com](https://seo.capturethatmedia.com)
+- Application: [seo-app.capturethatmedia.com](https://seo-app.capturethatmedia.com)
+- Production deploy runbook: [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md)
+
 ## Why it exists
 
 Semrush and Ahrefs are expensive and bloated, and they still treat AI search as a bolt on. Run Your SEO is the opposite: focused workflows, no seat tax, and you bring your own DataForSEO key so you pay only for the data you actually pull.
@@ -41,10 +45,11 @@ Either path needs a DataForSEO API key for search data. See [`docs/DATAFORSEO_AP
 
 Local development: [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md).
 
-> **Domain setup.** The public domain is not wired up yet. Deploy config uses a
-> placeholder, and the production domain is read from `APP_DOMAIN` so a deploy
-> fails loudly rather than publishing to the wrong hostname. Set it when the
-> domain is ready. Docs use `your-domain.com` as a stand in.
+> **Going live.** The marketing route and app hostname are wired for
+> seo.capturethatmedia.com and seo-app.capturethatmedia.com. The one
+> prerequisite is that `capturethatmedia.com` is a zone in the deploying
+> Cloudflare account. See
+> [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md).
 
 ## About Capture That Media
 

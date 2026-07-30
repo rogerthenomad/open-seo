@@ -6,7 +6,7 @@ describe("isValidDomainHost", () => {
   it("accepts real registrable domains", () => {
     expect(isValidDomainHost("example.com")).toBe(true);
     expect(isValidDomainHost("sub.example.co.uk")).toBe(true);
-    expect(isValidDomainHost("your-domain.com")).toBe(true);
+    expect(isValidDomainHost("seo.capturethatmedia.com")).toBe(true);
   });
 
   it("rejects fake TLDs, IPs, and bare hosts", () => {

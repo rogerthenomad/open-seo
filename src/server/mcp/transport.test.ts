@@ -227,10 +227,10 @@ describe("handleSelfHostedRunYourSeoMcpRequest", () => {
     expect(serverInfo).toMatchObject({
       name: "Run Your SEO MCP",
       title: "Run Your SEO",
-      websiteUrl: "https://your-domain.com",
+      websiteUrl: "https://seo.capturethatmedia.com",
       icons: [
         {
-          src: "https://your-domain.com/android-chrome-512x512.png",
+          src: "https://seo.capturethatmedia.com/android-chrome-512x512.png",
           mimeType: "image/png",
           sizes: ["512x512"],
         },

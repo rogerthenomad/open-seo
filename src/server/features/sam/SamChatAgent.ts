@@ -254,7 +254,7 @@ export class SamChatAgent extends Think {
 
       const baseUrl =
         (await this.ctx.storage.get<string>(PUBLIC_ORIGIN_KEY)) ??
-        "https://app.your-domain.com";
+        "https://seo-app.capturethatmedia.com";
       const authContext = buildFirstPartyMcpAuthContext({
         userId: ctx.row.userId,
         userEmail: ctx.userEmail,

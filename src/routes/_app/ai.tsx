@@ -40,7 +40,7 @@ export const Route = createFileRoute("/_app/ai")({
 function AiPage() {
   const mcpUrl =
     typeof window === "undefined"
-      ? "https://app.your-domain.com/mcp"
+      ? "https://seo-app.capturethatmedia.com/mcp"
       : `${window.location.origin}/mcp`;
 
   return (

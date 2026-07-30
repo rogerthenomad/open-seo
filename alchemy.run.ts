@@ -22,7 +22,7 @@ import {
 //
 // - Any stage except "hosted-prod": fresh stage-suffixed resources. Previews
 //   deploy via `pnpm deploy:preview --stage <name>`.
-// - Stage "hosted-prod": names the EXISTING your-domain.com production resources
+// - Stage "hosted-prod": names the EXISTING seo.capturethatmedia.com production resources
 //   so `--adopt` imports them. Deploy via `pnpm deploy:postgres` (--adopt and
 //   the stage baked in).
 //
@@ -230,23 +230,23 @@ export default Alchemy.Stack(
     const teamDomain = yield* optionalVar("TEAM_DOMAIN");
     const policyAud = yield* optionalVar("POLICY_AUD");
 
-    // Prod custom domains. Run Your SEO has no public domain wired up yet, so
-    // these come from APP_DOMAIN instead of being hardcoded: a prod deploy then
-    // fails loudly rather than publishing to a placeholder hostname or to a
-    // zone that isn't in this Cloudflare account. Set APP_DOMAIN to the apex
-    // (for example `runyourseo.com`) and the worker serves app.<domain> plus its
-    // www alias. The zone is inferred from the hostname.
+    // Prod custom domain. APP_DOMAIN is the EXACT hostname the app serves
+    // (production: seo-app.capturethatmedia.com). It stays env-driven so a
+    // prod deploy fails loudly if unset or if the zone is not in this
+    // Cloudflare account. Kept a single level below the apex on purpose:
+    // Cloudflare universal SSL covers *.capturethatmedia.com but not
+    // deeper subdomains. The zone is inferred from the hostname.
     let prodDomains: string[] | undefined;
     if (prod) {
       const appDomain = yield* optionalVar("APP_DOMAIN");
       if (!appDomain) {
         return yield* Effect.die(
           new Error(
-            "Set APP_DOMAIN (apex domain, e.g. runyourseo.com) in .env.production. It must already be a zone in this Cloudflare account.",
+            "Set APP_DOMAIN (the exact app hostname, e.g. seo-app.capturethatmedia.com) in .env.production. Its zone must already be in this Cloudflare account.",
           ),
         );
       }
-      prodDomains = [`app.${appDomain}`, `www.app.${appDomain}`];
+      prodDomains = [appDomain];
     }
 
     const app = yield* Cloudflare.Worker("run-your-seo", {
@@ -316,7 +316,7 @@ export default Alchemy.Stack(
         ),
       },
     }).pipe(
-      // Prod adopts the live worker serving app.your-domain.com; never delete it
+      // Prod adopts the live worker serving seo-app.capturethatmedia.com; never delete it
       // on destroy. (Workflow registrations aren't individually retainable —
       // they're created inside the worker provider — but re-registering them
       // is a lossless upsert, unlike deleting the data-bearing resources.)

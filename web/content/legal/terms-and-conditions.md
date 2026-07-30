@@ -1,11 +1,11 @@
 ---
 title: Terms and Conditions
-description: Terms and conditions for your-domain.com.
+description: Terms and conditions for seo.capturethatmedia.com.
 ---
 
 **Last revised on: 6/13/2026**
 
-The website located at https://your-domain.com (the “**Site**”), including the hosted Run Your SEO services made available through the Site, is a copyrighted work belonging to Capture That Media (“**Company**”, “**us**”, “**our**”, and “**we**”). These Terms apply to your use of the Site and the hosted Run Your SEO services made available through it. For the avoidance of doubt, these Terms do not govern any separately licensed deployment of Run Your SEO operated outside the Site. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features. All such additional terms, guidelines, and rules are incorporated by reference into these Terms.
+The website located at https://seo.capturethatmedia.com (the “**Site**”), including the hosted Run Your SEO services made available through the Site, is a copyrighted work belonging to Capture That Media (“**Company**”, “**us**”, “**our**”, and “**we**”). These Terms apply to your use of the Site and the hosted Run Your SEO services made available through it. For the avoidance of doubt, these Terms do not govern any separately licensed deployment of Run Your SEO operated outside the Site. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features. All such additional terms, guidelines, and rules are incorporated by reference into these Terms.
 
 THESE TERMS OF USE (THESE “**TERMS**”) SET FORTH THE LEGALLY BINDING TERMS AND CONDITIONS THAT GOVERN YOUR USE OF THE SITE. BY ACCESSING OR USING THE SITE, YOU ARE ACCEPTING THESE TERMS (ON BEHALF OF YOURSELF OR THE ENTITY THAT YOU REPRESENT), AND YOU REPRESENT AND WARRANT THAT YOU HAVE THE RIGHT, AUTHORITY, AND CAPACITY TO ENTER INTO THESE TERMS (ON BEHALF OF YOURSELF OR THE ENTITY THAT YOU REPRESENT). YOU MAY NOT ACCESS OR USE THE SITE OR ACCEPT THE TERMS IF YOU ARE NOT AT LEAST 18 YEARS OLD. IF YOU DO NOT AGREE WITH ALL OF THE PROVISIONS OF THESE TERMS, DO NOT ACCESS AND/OR USE THE SITE.
 
