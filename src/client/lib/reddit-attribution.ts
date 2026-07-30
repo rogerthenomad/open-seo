@@ -1,8 +1,8 @@
 import type { RedditAttributionInput } from "@/shared/reddit-attribution";
 import { redditAttributionSchema } from "@/shared/reddit-attribution";
 
-const STORAGE_KEY = "openseo:reddit-attribution";
-const SIGNUP_SENT_KEY = "openseo:reddit-signup-conversion-sent";
+const STORAGE_KEY = "runyourseo:reddit-attribution";
+const SIGNUP_SENT_KEY = "runyourseo:reddit-signup-conversion-sent";
 
 function readCookie(name: string) {
   const prefix = `${name}=`;

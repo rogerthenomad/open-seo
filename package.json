@@ -1,23 +1,23 @@
 {
-  "name": "open-seo",
+  "name": "run-your-seo",
   "private": true,
   "sideEffects": false,
   "version": "0.1.2",
-  "description": "OpenSEO, Capture That Media edition. Open source alternative to Semrush and Ahrefs.",
+  "description": "Run Your SEO. SEO and AI visibility platform by Capture That Media.",
   "license": "MIT",
-  "author": "Capture That Media (Roger Wong Won)",
+  "author": "Roger Wong Won <roger@capturethatmedia.com> (Capture That Media)",
   "contributors": [
-    "Ben Senescu and the OpenSEO contributors (upstream)"
+    "Ben Senescu and the OpenSEO contributors (upstream project, MIT)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rogerthenomad/open-seo"
+    "url": "https://github.com/rogerthenomad/Run-Your-SEO"
   },
   "type": "module",
   "packageManager": "pnpm@10.30.1",
   "scripts": {
     "dev": "vite dev",
-    "dev:clear-chat": "rm -rf .wrangler/state/v3/do/open-seo-OnboardingChatAgent",
+    "dev:clear-chat": "rm -rf .wrangler/state/v3/do/run-your-seo-OnboardingChatAgent",
     "dev:agents": "mkdir -p .logs && portless run vite dev 2>&1 | tee .logs/dev-server.log",
     "dev:agents:force": "mkdir -p .logs && portless --force run vite dev 2>&1 | tee .logs/dev-server.log",
     "build": "vite build && tsc --noEmit",

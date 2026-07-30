@@ -40,10 +40,12 @@ describe("normalizeBacklinksTarget", () => {
 
   it("trims trailing slashes from non-root page URLs", () => {
     expect(
-      normalizeBacklinksTarget("https://github.com/every-app/open-seo/"),
+      normalizeBacklinksTarget(
+        "https://github.com/rogerthenomad/Run-Your-SEO/",
+      ),
     ).toEqual({
-      apiTarget: "https://github.com/every-app/open-seo",
-      displayTarget: "https://github.com/every-app/open-seo",
+      apiTarget: "https://github.com/rogerthenomad/Run-Your-SEO",
+      displayTarget: "https://github.com/rogerthenomad/Run-Your-SEO",
       scope: "page",
     });
   });

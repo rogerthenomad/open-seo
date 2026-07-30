@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "open-seo-landing",
+  "name": "run-your-seo-landing",
   "compatibility_date": "2026-02-19",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
@@ -17,19 +17,25 @@
       "invocation_logs": true,
     },
   },
-  "routes": [
-    {
-      "pattern": "openseo.so",
-      "custom_domain": true,
-    },
-    {
-      "pattern": "www.openseo.so",
-      "custom_domain": true,
-    },
-  ],
+  // Custom domains stay commented out until Run Your SEO has a domain. A
+  // `custom_domain` route fails the deploy unless that hostname is already a
+  // zone in this Cloudflare account, so a placeholder here would break
+  // `wrangler deploy`. Until then the marketing worker serves on workers.dev
+  // via `workers_dev` above. To go live, uncomment and set both patterns to the
+  // real apex and www hostnames.
+  // "routes": [
+  //   {
+  //     "pattern": "runyourseo.com",
+  //     "custom_domain": true,
+  //   },
+  //   {
+  //     "pattern": "www.runyourseo.com",
+  //     "custom_domain": true,
+  //   },
+  // ],
   "env": {
     "preview": {
-      "name": "open-seo-landing-preview",
+      "name": "run-your-seo-landing-preview",
       "workers_dev": true,
       "preview_urls": true,
     },

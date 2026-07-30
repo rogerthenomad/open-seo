@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "open-seo",
+  "name": "run-your-seo",
   "main": "src/server.ts",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -83,7 +83,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "open-seo",
+      "database_name": "run-your-seo",
       "database_id": "37bee90a-e1aa-404f-b01e-b0d1d479bda1",
       "migrations_dir": "drizzle",
     },
@@ -96,18 +96,18 @@
   //
   // Kept commented out: an active hyperdrive block makes the "Deploy to
   // Cloudflare" button demand a Postgres connection string, and the id lives in
-  // OpenSEO's account anyway (Alchemy deploys and the Docker image never read
+  // Run Your SEO's account anyway (Alchemy deploys and the Docker image never read
   // it). Uncomment when running local Postgres dev per docs/LOCAL_POSTGRES.md.
   // "hyperdrive": [
   //   {
   //     "binding": "HYPERDRIVE",
   //     "id": "9d64ccfb559f44449ce52a143912f898",
-  //     "localConnectionString": "postgres://openseo:openseo@localhost:5433/openseo",
+  //     "localConnectionString": "postgres://runyourseo:runyourseo@localhost:5433/runyourseo",
   //   },
   // ],
   "r2_buckets": [
     {
-      "bucket_name": "open-seo",
+      "bucket_name": "run-your-seo",
       "binding": "R2",
     },
   ],

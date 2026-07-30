@@ -9,9 +9,9 @@ import { NewsletterSignup } from "@/components/newsletter-signup";
 import { SiteFooter } from "@/components/site-footer";
 import { featureGroups } from "@/lib/feature-pages";
 
-const GITHUB_REPO = "every-app/open-seo";
+const GITHUB_REPO = "rogerthenomad/Run-Your-SEO";
 const PRODUCT_HUNT_URL =
-  "https://www.producthunt.com/products/openseo?launch=openseo";
+  "https://www.producthunt.com/products/runyourseo?launch=runyourseo";
 // Used if GitHub is unreachable at build time so the header never renders empty.
 const FALLBACK_STAR_COUNT = "2.1k";
 
@@ -27,7 +27,7 @@ async function fetchGithubStarCount(): Promise<string> {
       headers: {
         Accept: "application/vnd.github+json",
         // GitHub rejects requests without a User-Agent.
-        "User-Agent": "openseo-landing",
+        "User-Agent": "runyourseo-landing",
       },
     });
     if (!res.ok) return FALLBACK_STAR_COUNT;
@@ -71,7 +71,7 @@ function getMobileNavItems(githubStarCount: string) {
       links: [
         {
           label: `GitHub ${githubStarCount}`,
-          href: "https://github.com/every-app/open-seo",
+          href: "https://github.com/rogerthenomad/Run-Your-SEO",
         },
       ],
     },
@@ -165,12 +165,12 @@ function MarketingLayout() {
           target="_blank"
           rel="noopener noreferrer"
           className="group flex min-h-11 items-center justify-center gap-2 bg-[#ff6154] px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-[#e9574c] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white"
-          aria-label="OpenSEO just launched on Product Hunt. Upvote and comment."
+          aria-label="Run Your SEO just launched on Product Hunt. Upvote and comment."
         >
           <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-white p-0.5">
             <img src="/product-hunt.svg" alt="" className="size-full" />
           </span>
-          <span>OpenSEO just launched on Product Hunt.</span>
+          <span>Run Your SEO just launched on Product Hunt.</span>
           <span className="inline-flex items-center gap-1 whitespace-nowrap underline decoration-white/55 underline-offset-4 group-hover:decoration-white">
             Upvote &amp; comment <span aria-hidden="true">&rarr;</span>
           </span>
@@ -183,7 +183,7 @@ function MarketingLayout() {
               to="/"
               className="text-sm font-semibold hover:opacity-80 transition-opacity"
             >
-              OpenSEO
+              Run Your SEO
             </Link>
 
             <div className="hidden items-center justify-center gap-5 md:flex">
@@ -208,7 +208,7 @@ function MarketingLayout() {
                 {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
               <a
-                href="https://github.com/every-app/open-seo"
+                href="https://github.com/rogerthenomad/Run-Your-SEO"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`GitHub, ${githubStarCount} stars`}
@@ -219,7 +219,7 @@ function MarketingLayout() {
                 <span className="text-neutral-500">{githubStarCount}</span>
               </a>
               <a
-                href="https://app.openseo.so/sign-in"
+                href="https://app.your-domain.com/sign-in"
                 className="hidden h-9 items-center rounded-full border border-[var(--color-border-subtle)] px-4 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900 md:inline-flex"
               >
                 Sign in
@@ -231,14 +231,14 @@ function MarketingLayout() {
             <div className="absolute left-0 right-0 top-full z-30 mt-3 rounded-2xl border border-[var(--color-border-subtle)] bg-white p-3 shadow-xl shadow-neutral-900/10 md:hidden">
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="https://app.openseo.so/sign-in"
+                  href="https://app.your-domain.com/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-11 items-center justify-center rounded-xl bg-neutral-950 px-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
                 >
-                  Try OpenSEO
+                  Try Run Your SEO
                 </a>
                 <a
-                  href="https://app.openseo.so/sign-in"
+                  href="https://app.your-domain.com/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-11 items-center justify-center rounded-xl border border-[var(--color-border-subtle)] px-3 text-sm font-semibold text-neutral-800 transition-colors hover:border-neutral-900 hover:bg-[#f5f1ec]"
                 >
@@ -299,12 +299,12 @@ function ResourcesDropdown() {
     {
       label: "MCP",
       href: "/docs/mcp",
-      description: "Connect OpenSEO to AI clients.",
+      description: "Connect Run Your SEO to AI clients.",
     },
     {
       label: "Skills",
       href: "/docs/skills",
-      description: "Focused OpenSEO workflows.",
+      description: "Focused Run Your SEO workflows.",
     },
   ];
 
@@ -395,7 +395,7 @@ function FeatureDropdown() {
                   className="block rounded-md p-2 transition-colors hover:bg-[#f5f1ec]"
                 >
                   <span className="text-sm font-semibold text-neutral-900">
-                    OpenSEO MCP
+                    Run Your SEO MCP
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-neutral-600">
                     Connect Claude, Codex, and agents.

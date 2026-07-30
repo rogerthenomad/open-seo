@@ -1,6 +1,6 @@
 # Cloudflare Self-Hosting
 
-Host OpenSEO on Cloudflare for internet-facing self-hosting across multiple devices or with your team. It works on Cloudflare's free plan.
+Host Run Your SEO on Cloudflare for internet-facing self-hosting across multiple devices or with your team. It works on Cloudflare's free plan.
 
 This doc covers initial setup with the Deploy to Cloudflare button. Related guides:
 
@@ -9,7 +9,7 @@ This doc covers initial setup with the Deploy to Cloudflare button. Related guid
 
 ## 1) Deploy from GitHub
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/every-app/open-seo)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rogerthenomad/Run-Your-SEO)
 
 Click the deploy button, there are lots of fields on the deploy form, but you only need to do the below steps.
 
@@ -18,13 +18,13 @@ Click the deploy button, there are lots of fields on the deploy form, but you on
 3. Click `Create and Deploy`.
 4. Wait 1-2 minutes for deployment to finish.
 
-If deploy fails with `Cannot provision a KV Namespace with the title "open-seo" because it already exists`, use the [manual deploy with Wrangler](./SELF_HOSTING_CLOUDFLARE_MANUAL.md) flow instead.
+If deploy fails with `Cannot provision a KV Namespace with the title "run-your-seo" because it already exists`, use the [manual deploy with Wrangler](./SELF_HOSTING_CLOUDFLARE_MANUAL.md) flow instead.
 
 ## 2) Configure authentication and secrets
 
 In the Cloudflare dashboard:
 
-1. Go to `Compute` -> `Workers & Pages` -> your OpenSEO Worker.
+1. Go to `Compute` -> `Workers & Pages` -> your Run Your SEO Worker.
 2. Open `Settings`.
 3. In `Domains & Routes`, enable `Cloudflare Access` for the `workers.dev` route.
 4. Save the values shown by Cloudflare Access.
@@ -38,10 +38,10 @@ In the Cloudflare dashboard:
 DataForSEO API responses are cached in R2 under the `dataforseo-cache/` prefix. This step is optional, but recommended to automatically clean up expired cache objects:
 
 ```bash
-npx wrangler r2 bucket lifecycle add open-seo dataforseo-cache-expiry dataforseo-cache/ --expire-days 7
+npx wrangler r2 bucket lifecycle add run-your-seo dataforseo-cache-expiry dataforseo-cache/ --expire-days 7
 ```
 
-If you changed the R2 bucket name during deploy, replace `open-seo` with your bucket name.
+If you changed the R2 bucket name during deploy, replace `run-your-seo` with your bucket name.
 
 Without a lifecycle rule, cached objects under `dataforseo-cache/` will accumulate indefinitely and increase storage costs over time.
 
@@ -49,10 +49,10 @@ Without a lifecycle rule, cached objects under `dataforseo-cache/` will accumula
 
 1. Open your Worker URL again.
 2. Sign in with Cloudflare Access.
-3. OpenSEO should load after login.
+3. Run Your SEO should load after login.
 
 If login fails, re-check the three secrets and Access toggle.
 
 ## Next steps
 
-See [Operations](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md) for connecting MCP clients, updating to the latest OpenSEO version, and giving teammates access.
+See [Operations](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md) for connecting MCP clients, updating to the latest Run Your SEO version, and giving teammates access.

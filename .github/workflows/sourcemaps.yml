@@ -7,16 +7,15 @@ concurrency:
   group: sourcemaps-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  # The public mirror never uploads. Any other copy of the repo uploads only
-  # once POSTHOG_CLI_TOKEN is configured, so a private copy or fork without it
-  # stays green instead of failing every push to main. The secrets context is
-  # not available in a job-level `if`, so this gate turns "is PostHog
-  # configured" into an output that `upload` can branch on. Skipping the whole
-  # job matters: guarding only the inner steps leaves setup-node's post-run
-  # cache save looking for a pnpm store that `pnpm install` never created,
-  # which fails the run.
+  # Only this repo uploads, and only once POSTHOG_CLI_TOKEN is configured, so a
+  # fork or an unconfigured clone stays green instead of failing every push to
+  # main. The secrets context is not available in a job-level `if`, so this gate
+  # turns "is PostHog configured" into an output that `upload` can branch on.
+  # Skipping the whole job matters: guarding only the inner steps leaves
+  # setup-node's post-run cache save looking for a pnpm store that
+  # `pnpm install` never created, which fails the run.
   gate:
-    if: github.repository != 'every-app/open-seo'
+    if: github.repository == 'rogerthenomad/Run-Your-SEO'
     runs-on: ubuntu-latest
     outputs:
       configured: ${{ steps.check.outputs.configured }}

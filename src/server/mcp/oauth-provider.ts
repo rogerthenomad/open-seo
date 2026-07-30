@@ -22,7 +22,7 @@ import {
 } from "@/server/mcp/context";
 import { normalizeClientRegistrationRequest } from "@/server/mcp/oauth-registration";
 import { getPublicOrigin } from "@/server/mcp/public-origin";
-import { handleAuthenticatedOpenSeoMcpRequest } from "@/server/mcp/transport";
+import { handleAuthenticatedRunYourSeoMcpRequest } from "@/server/mcp/transport";
 import { resolveHostedContext } from "@/middleware/ensure-user/hosted";
 
 const OAUTH_AUTHORIZE_PATH = "/api/auth/oauth2/authorize";
@@ -46,7 +46,7 @@ const OAUTH_AUTHORIZATION_PARAM_NAMES = [
 const MCP_ACCESS_TOKEN_TTL_SECONDS = 60 * 60 * 24;
 const MCP_REFRESH_TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
 
-export type OpenSeoOAuthEnv = Env & {
+export type RunYourSeoOAuthEnv = Env & {
   OAUTH_KV: KVNamespace;
   OAUTH_PROVIDER?: OAuthHelpers;
 };
@@ -66,7 +66,7 @@ const consentResponseSchema = z.object({
   query: z.string(),
 });
 
-function getOAuthHelpers(env: OpenSeoOAuthEnv) {
+function getOAuthHelpers(env: RunYourSeoOAuthEnv) {
   if (!env.OAUTH_PROVIDER) {
     throw new Error("OAuth provider helpers are unavailable");
   }
@@ -264,7 +264,7 @@ function deniedRedirect(authRequest: AuthRequest) {
 
 async function handleOAuthAuthorizeRequest(
   request: Request,
-  env: OpenSeoOAuthEnv,
+  env: RunYourSeoOAuthEnv,
 ) {
   const oauth = getOAuthHelpers(env);
 
@@ -282,7 +282,7 @@ async function handleOAuthAuthorizeRequest(
 
 async function handleOAuthConsentResponse(
   request: Request,
-  env: OpenSeoOAuthEnv,
+  env: RunYourSeoOAuthEnv,
 ) {
   if (request.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
@@ -386,7 +386,7 @@ async function handleOAuthConsentResponse(
 
 function createDefaultHandler(
   appFetch: AppFetch,
-): ExportedHandlerWithFetch<OpenSeoOAuthEnv> {
+): ExportedHandlerWithFetch<RunYourSeoOAuthEnv> {
   return {
     async fetch(request, env) {
       const url = new URL(request.url);
@@ -404,9 +404,9 @@ function createDefaultHandler(
   };
 }
 
-const mcpApiHandler: ExportedHandlerWithFetch<OpenSeoOAuthEnv> = {
+const mcpApiHandler: ExportedHandlerWithFetch<RunYourSeoOAuthEnv> = {
   async fetch(request, env, ctx) {
-    return handleAuthenticatedOpenSeoMcpRequest(
+    return handleAuthenticatedRunYourSeoMcpRequest(
       request,
       (ctx as OAuthExecutionContext).props,
       env,
@@ -415,8 +415,8 @@ const mcpApiHandler: ExportedHandlerWithFetch<OpenSeoOAuthEnv> = {
   },
 };
 
-export function createOpenSeoOAuthProvider(appFetch: AppFetch) {
-  const options: OAuthProviderOptions<OpenSeoOAuthEnv> = {
+export function createRunYourSeoOAuthProvider(appFetch: AppFetch) {
+  const options: OAuthProviderOptions<RunYourSeoOAuthEnv> = {
     apiRoute: MCP_ROUTE,
     apiHandler: mcpApiHandler,
     defaultHandler: createDefaultHandler(appFetch),
@@ -428,7 +428,7 @@ export function createOpenSeoOAuthProvider(appFetch: AppFetch) {
     refreshTokenTTL: MCP_REFRESH_TOKEN_TTL_SECONDS,
     resourceMetadata: {
       scopes_supported: [...MCP_OAUTH_SCOPES],
-      resource_name: "OpenSEO MCP",
+      resource_name: "Run Your SEO MCP",
     },
     tokenExchangeCallback: ({ props, requestedScope }) => {
       const accessTokenProps = withWorkersOAuthMcpScopes(props, requestedScope);
@@ -441,7 +441,11 @@ export function createOpenSeoOAuthProvider(appFetch: AppFetch) {
   const provider = new OAuthProvider(options);
 
   return {
-    async fetch(request: Request, env: OpenSeoOAuthEnv, ctx: ExecutionContext) {
+    async fetch(
+      request: Request,
+      env: RunYourSeoOAuthEnv,
+      ctx: ExecutionContext,
+    ) {
       const url = new URL(request.url);
 
       if (url.pathname === OAUTH_REGISTER_PATH) {

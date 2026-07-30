@@ -12,7 +12,7 @@ export function SiteFooter({ className }: { className?: string }) {
   return (
     <div className={className}>
       <Link to="/" className="text-sm font-semibold text-neutral-900">
-        OpenSEO
+        Run Your SEO
       </Link>
 
       <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -31,7 +31,7 @@ export function SiteFooter({ className }: { className?: string }) {
         <div>
           <p className="font-semibold text-neutral-900">AI agents</p>
           <div className="mt-2 flex flex-col gap-1.5">
-            <Link to="/features/mcp">OpenSEO MCP</Link>
+            <Link to="/features/mcp">Run Your SEO MCP</Link>
             <Link to="/google-search-console-mcp">
               Google Search Console MCP
             </Link>
@@ -53,18 +53,18 @@ export function SiteFooter({ className }: { className?: string }) {
           <div className="mt-2 flex flex-col gap-1.5">
             <Link to="/pricing">Pricing</Link>
             <a
-              href="https://github.com/every-app/open-seo"
+              href="https://github.com/rogerthenomad/Run-Your-SEO"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
             </a>
             <a
-              href="https://discord.gg/c9uGs3cFXr"
+              href="https://www.capturethatmedia.com/contact"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Discord
+              Contact
             </a>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms-and-conditions">Terms</Link>

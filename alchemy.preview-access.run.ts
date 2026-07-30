@@ -14,12 +14,12 @@ import {
 // the others. The wildcard hostname derives from the same worker naming the
 // deploy stack uses (alchemy.access.ts).
 //
-// This gates the stable stage hostname (`open-seo-<stage>.<sub>`). Cloudflare
-// version preview URLs (`<version>-open-seo-<stage>.<sub>`) sit outside this
+// This gates the stable stage hostname (`run-your-seo-<stage>.<sub>`). Cloudflare
+// version preview URLs (`<version>-run-your-seo-<stage>.<sub>`) sit outside this
 // wildcard, but alchemy uploads each version with no preview provisioned
 // (`has_preview: false`), so none are served — see docs/PREVIEW_DEPLOYMENTS.md.
 export default Alchemy.Stack(
-  "open-seo-preview-access",
+  "run-your-seo-preview-access",
   {
     providers: Cloudflare.providers(),
     state: Cloudflare.state(),
@@ -34,8 +34,8 @@ export default Alchemy.Stack(
     const application = yield* emailAccessGate({
       policyId: "PreviewAllowTeam",
       applicationId: "PreviewAccess",
-      policyName: "open-seo preview team",
-      applicationName: "open-seo preview environments",
+      policyName: "run-your-seo preview team",
+      applicationName: "run-your-seo preview environments",
       domain: hostname,
       emails: allowedEmails,
     });

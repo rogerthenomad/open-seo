@@ -12,7 +12,7 @@ type Column = {
 };
 
 const COLUMNS: Column[] = [
-  { name: "OpenSEO", highlight: true },
+  { name: "Run Your SEO", highlight: true },
   { name: "DIY open-source repos" },
   { name: "Data-pipeline tools" },
 ];

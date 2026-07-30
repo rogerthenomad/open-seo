@@ -5,17 +5,17 @@
 // policy/application shape define who gets through which hostnames; keep them
 // in one place so the two gates cannot drift. The one copy that can't import
 // this module is the shell in .github/workflows/pr-preview.yml — its
-// `open-seo-<stage>` naming stays comment-synced (and is backstopped by the
+// `run-your-seo-<stage>` naming stays comment-synced (and is backstopped by the
 // workflow's Access verify step).
 
 import * as Cloudflare from "alchemy/Cloudflare";
 import * as Config from "effect/Config";
 import * as Effect from "effect/Effect";
 
-const WORKER_PREFIX = "open-seo";
+const WORKER_PREFIX = "run-your-seo";
 
-// The one stage that adopts openseo.so's live hosted resources (unsuffixed
-// names, app.openseo.so domain, Postgres). Deliberately not "prod" so a
+// The one stage that adopts your-domain.com's live hosted resources (unsuffixed
+// names, app.your-domain.com domain, Postgres). Deliberately not "prod" so a
 // self-hoster's stage name can't collide with the adoption path.
 export const HOSTED_PROD_STAGE = "hosted-prod";
 

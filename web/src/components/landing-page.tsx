@@ -12,11 +12,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { featurePages } from "@/lib/feature-pages";
 import "./landing-page.css";
 
-const SIGNUP_URL = "https://app.openseo.so/sign-up";
+const SIGNUP_URL = "https://app.your-domain.com/sign-up";
 const PRODUCT_HUNT_URL =
-  "https://www.producthunt.com/products/openseo?launch=openseo";
-const GITHUB_URL = "https://github.com/every-app/open-seo";
-const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
+  "https://www.producthunt.com/products/runyourseo?launch=runyourseo";
+const GITHUB_URL = "https://github.com/rogerthenomad/Run-Your-SEO";
+const SUPPORT_URL = "https://www.capturethatmedia.com/contact";
 
 type Testimonial = {
   quote: string;
@@ -31,7 +31,7 @@ type Testimonial = {
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "All of the value, none of the bloat. OpenSEO is a no-brainer compared to the expensive alternatives!",
+      "All of the value, none of the bloat. Run Your SEO is a no-brainer compared to the expensive alternatives!",
     name: "Fed",
     initial: "F",
     handle: "@foliofed",
@@ -41,7 +41,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "I've been using OpenSEO for the past 3 months, Ben keeps launching features to make it the best. I use it every day to find where my competitors are ranking.",
+      "I've been using Run Your SEO for the past 3 months, Ben keeps launching features to make it the best. I use it every day to find where my competitors are ranking.",
     name: "Samik",
     initial: "S",
     handle: "Subclip",
@@ -51,7 +51,7 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "It's so straightforward and incredibly easy to get started. OpenSEO gives you the complete setup, stripped of all the fluff that you get elsewhere.",
+      "It's so straightforward and incredibly easy to get started. Run Your SEO gives you the complete setup, stripped of all the fluff that you get elsewhere.",
     name: "Tom Raine",
     initial: "T",
     handle: "LinkedIn",
@@ -143,17 +143,21 @@ function IconLink({ size = 14, className }: IconProps) {
   );
 }
 
-function IconDiscord({ size = 18, className }: IconProps) {
+function IconContact({ size = 18, className }: IconProps) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className={className}
       aria-hidden="true"
     >
-      <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   );
 }
@@ -217,7 +221,7 @@ function Hero() {
           className="itc-subhead itc-muted itc-hero-subtitle"
           style={{ maxWidth: 640, margin: "24px auto 0" }}
         >
-          Without quality data, AI gives generic advice. OpenSEO is built for
+          Without quality data, AI gives generic advice. Run Your SEO is built for
           you and your AI agent to work together on SEO strategy + content
           tailored to your business.
         </p>
@@ -341,12 +345,12 @@ function DemoVideo() {
       autoPlay
       playsInline
       preload="metadata"
-      aria-label="OpenSEO product demo: running keyword research"
+      aria-label="Run Your SEO product demo: running keyword research"
     >
       <source src="/demo.mp4" type="video/mp4" />
       <img
         src="/demo-poster.webp"
-        alt="OpenSEO keyword research dashboard"
+        alt="Run Your SEO keyword research dashboard"
         width={1280}
         height={966}
         loading="lazy"
@@ -361,7 +365,7 @@ function ProductSection() {
     <section className="itc-section itc-section-demo">
       <Container>
         <div className="itc-narrow">
-          <h2 className="itc-display-lg">See OpenSEO in action</h2>
+          <h2 className="itc-display-lg">See Run Your SEO in action</h2>
           <p className="itc-subhead itc-muted" style={{ margin: "20px 0 0" }}>
             Keyword research, competitor analysis, backlinks, rank tracking,
             technical audits, and AI-search visibility, all on real DataForSEO
@@ -433,7 +437,7 @@ function McpSection() {
             <p className="itc-body-lg itc-muted" style={{ margin: "20px 0 0" }}>
               Give your agent real SEO data instead of guesses. It can research
               keywords, competitors, backlinks, and Google Search Console
-              performance, then you can review the work in OpenSEO.
+              performance, then you can review the work in Run Your SEO.
             </p>
             <div className="itc-agent-icons">
               {MCP_CLIENTS.map(({ name, Icon }) => (
@@ -470,15 +474,15 @@ function McpSection() {
                 <span className="itc-terminal-dot" />
                 <span className="itc-terminal-dot" />
               </span>
-              <span className="itc-terminal-label">claude · openseo mcp</span>
+              <span className="itc-terminal-label">claude · runyourseo mcp</span>
             </div>
             <pre>
               <code>
                 <span className="t-orange">›</span> find and cluster keywords
-                for <span className="t-bright">openseo.so</span>
+                for <span className="t-bright">your-domain.com</span>
                 {"\n\n"}
                 <span className="t-dim">
-                  ⏺ openseo.keyword_research(seed: &quot;open source seo&quot;)
+                  ⏺ runyourseo.keyword_research(seed: &quot;open source seo&quot;)
                 </span>
                 {"\n"}
                 {"  "}keyword{"                      "}volume{"     "}kd{"\n"}
@@ -505,7 +509,7 @@ function McpSection() {
                 {"\n"}
                 <span className="t-orange">↳</span>
                 <span className="t-dim"> View data in app: </span>
-                <span className="t-bright">app.openseo.so/keywords</span>
+                <span className="t-bright">app.your-domain.com/keywords</span>
               </code>
             </pre>
           </div>
@@ -806,7 +810,7 @@ function OpenSourceSection() {
           <p className="itc-subhead itc-muted" style={{ margin: "20px 0 0" }}>
             People should have the option to self-host and customize their
             tools. If you ever hear someone talking about building their own
-            tool from scratch, tell them to build on top of OpenSEO.
+            tool from scratch, tell them to build on top of Run Your SEO.
           </p>
         </div>
 
@@ -880,7 +884,7 @@ function Footer() {
           className="itc-caption itc-subtle"
           style={{ margin: 0, padding: "40px 0 32px" }}
         >
-          © 2026 Every App, Inc.
+          © 2026 Capture That Media.
         </p>
       </Container>
     </footer>
@@ -899,14 +903,14 @@ export function LandingPage() {
       <ProductSection />
       <Footer />
       <a
-        href={DISCORD_URL}
+        href={SUPPORT_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="itc-discord"
-        aria-label="Join the OpenSEO Discord"
+        className="itc-contact"
+        aria-label="Contact Capture That Media"
       >
-        <IconDiscord size={18} />
-        <span>Discord</span>
+        <IconContact size={18} />
+        <span>Talk to us</span>
       </a>
     </div>
   );

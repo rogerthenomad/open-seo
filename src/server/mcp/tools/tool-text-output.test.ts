@@ -4,7 +4,7 @@ import type { ToolExtra } from "@/server/mcp/context";
 import { MCP_AUTH_CONTEXT_PROP } from "@/server/mcp/context";
 
 // Verifies that each tool renders its actual row data into the text content
-// block (not just a count), across the tools whose data comes from OpenSEO
+// block (not just a count), across the tools whose data comes from Run Your SEO
 // services rather than the DataForSEO client. Guards against a column wired to
 // the wrong field, which would render a table of only "—".
 
@@ -62,9 +62,9 @@ const authContext = {
   organizationId: "org_123",
   clientId: "client_123",
   scopes: ["mcp"],
-  audience: "https://open-seo.test/mcp",
+  audience: "https://run-your-seo.test/mcp",
   subject: "user_123",
-  baseUrl: "https://open-seo.test",
+  baseUrl: "https://run-your-seo.test",
 };
 
 const toolExtra: ToolExtra = {
@@ -76,7 +76,7 @@ const toolExtra: ToolExtra = {
     token: "token",
     clientId: "client_123",
     scopes: ["mcp"],
-    resource: new URL("https://open-seo.test/mcp"),
+    resource: new URL("https://run-your-seo.test/mcp"),
     extra: { [MCP_AUTH_CONTEXT_PROP]: authContext },
   } satisfies AuthInfo,
 };
