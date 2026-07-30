@@ -1,5 +1,5 @@
 ---
-name: runyourseo-release-notes
+name: run-your-seo-release-notes
 description: 'Cut an Run Your SEO release — bump the version, draft user-facing release notes from commits since the last tag, run a review + subagent-verification pass, and open a "release: vX.X.X" PR. Use when the user asks to prepare a release, bump the version, or write release notes.'
 metadata:
   internal: true

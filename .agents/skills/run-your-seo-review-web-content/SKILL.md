@@ -1,5 +1,5 @@
 ---
-name: runyourseo-review-web-content
+name: run-your-seo-review-web-content
 description: Write and review content for the Run Your SEO website (web/) — blog posts, guides, feature pages, FAQs. Distills the philosophy for on-brand, useful, accurate content. Use whenever adding or editing user-facing prose in web/content or web/src.
 metadata:
   internal: true
