@@ -1,39 +1,35 @@
 /**
- * Landing-page styles.
+ * Landing-page styles, Capture That Media skin.
  *
  * Scoped under `.itc` and kept unlayered (plain CSS) so these component
- * classes win over Tailwind's layered utilities, matching the page's design.
- * Palette vars that exactly match the global @theme tokens (app.css) alias
- * them instead of redefining the hex; vars with bespoke values stay local.
+ * classes win over Tailwind's layered utilities. The brand system: a bright
+ * white canvas, soft pink washes for section rhythm, and the Capture That
+ * Media gradient (cyan #0df3e6, purple #711c90, pink #f266e8) for accent
+ * moments. Text stays near black and interactive color is the deep brand
+ * purple, so contrast holds while the page reads light and optimistic.
  */
 
 .itc {
-  --canvas: var(--color-surface);
-  --surface: var(--color-surface-raised);
-  --surface-2: #ebe7e1;
-  --ink: var(--color-brand);
-  --ink-muted: #626260;
-  --ink-subtle: #7b7b78;
-  --ink-tertiary: #9c9fa5;
-  --hairline: #d3cec6;
-  --hairline-soft: #ebe7e1;
-  --orange: var(--color-brand-accent);
-  --inverse: #000000;
-  --inverse-surface: #313130;
-  --inverse-muted: #9c9fa5;
-  /* Testimonial band (light: deep greige band, white cards, charcoal text) */
-  --q-bg: #e3dccd;
-  --q-card: #ffffff;
-  --q-card-border: #d0c9bb;
-  --q-text: #111111;
-  --q-muted: #7b7b78;
-  --q-avatar-bg: #111111;
-  --q-avatar-fg: #ffffff;
-  --q-mark: #b8ac96;
-  /* Dark "emphasis" surfaces: featured pricing card + MCP terminal */
-  --feat-bg: #221f1b;
-  --feat-text: #ffffff;
-  --term-bg: #221f1b;
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --wash: #fdf3fc;
+  --wash-2: #fbe9f9;
+  --ink: #1b1622;
+  --ink-muted: #5d5566;
+  --ink-subtle: #7d7586;
+  --hairline: #eedbec;
+  --hairline-soft: #f6e9f5;
+  --brand-cyan: #0df3e6;
+  --brand-purple: #711c90;
+  --brand-purple-deep: #5d1777;
+  --brand-pink: #f266e8;
+  --brand-gradient: linear-gradient(
+    100deg,
+    var(--brand-cyan) 0%,
+    var(--brand-purple) 55%,
+    var(--brand-pink) 100%
+  );
+  --term-bg: #221a2b;
   font-family:
     "Inter",
     ui-sans-serif,
@@ -76,11 +72,6 @@
 .itc-section {
   padding: 96px 0;
 }
-.itc-section-open-source {
-  background: #f8f6f2;
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-}
 .itc-section-demo {
   background: var(--canvas);
 }
@@ -93,10 +84,10 @@
   }
 }
 
-/* ── Type scale (Inter standing in for Saans; weight 500 carries display) ── */
+/* ── Type scale ── */
 .itc-display-xl {
   font-size: clamp(40px, 6.5vw, 72px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.028em;
   margin: 0;
@@ -104,7 +95,7 @@
 }
 .itc-display-lg {
   font-size: clamp(32px, 4.4vw, 52px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.026em;
   margin: 0;
@@ -112,23 +103,16 @@
 }
 .itc-display-md {
   font-size: clamp(28px, 3.4vw, 40px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 0;
   text-wrap: balance;
 }
-.itc-card-title {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.013em;
-  margin: 0;
-}
 .itc-subhead {
   font-size: 20px;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.45;
   letter-spacing: -0.01em;
 }
 .itc-body-lg {
@@ -145,12 +129,13 @@
   line-height: 1.4;
 }
 .itc-eyebrow {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   line-height: 1.3;
-  letter-spacing: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin: 0 0 16px;
-  color: var(--ink-muted);
+  color: var(--brand-purple);
 }
 .itc-muted {
   color: var(--ink-muted);
@@ -164,7 +149,23 @@
   }
 }
 
-/* ── Buttons: 8px radius, 10x18 padding, never pill ── */
+/* The gradient text moment: an italic accent phrase inside a headline. The
+   ramp starts at the purple midpoint so the phrase stays readable on white. */
+.itc-grad-accent {
+  font-style: italic;
+  background: linear-gradient(
+    100deg,
+    var(--brand-purple) 0%,
+    #c025b3 60%,
+    #d940cd 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
+/* ── Buttons ── */
 .itc-btn {
   display: inline-flex;
   align-items: center;
@@ -172,7 +173,7 @@
   gap: 8px;
   min-height: 44px;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid transparent;
   font-family: inherit;
   font-size: 15px;
@@ -183,24 +184,27 @@
   cursor: pointer;
   transition:
     background-color 0.15s ease,
-    border-color 0.15s ease;
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .itc-btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }
 .itc-btn-lg {
   min-height: 54px;
   padding: 15px 28px;
   font-size: 17px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
+/* Primary CTA: deep brand purple, white text, soft pink glow on hover. */
 .itc-btn-primary {
-  background: var(--ink);
+  background: var(--brand-purple);
   color: #ffffff;
 }
 .itc-btn-primary:hover {
-  background: #000000;
+  background: var(--brand-purple-deep);
+  box-shadow: 0 8px 24px rgba(242, 102, 232, 0.35);
 }
 .itc-btn-secondary {
   background: var(--surface);
@@ -208,17 +212,7 @@
   border-color: var(--hairline);
 }
 .itc-btn-secondary:hover {
-  border-color: var(--ink);
-}
-.itc-btn-fin {
-  background: var(--orange);
-  color: #ffffff;
-}
-.itc-btn-fin:hover {
-  background: #e64d00;
-}
-.itc-btn-fin:focus-visible {
-  outline-color: var(--orange);
+  border-color: var(--brand-purple);
 }
 .itc-arrow {
   transition: transform 0.15s ease;
@@ -245,7 +239,7 @@
   gap: 6px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--brand-purple);
   text-decoration: none;
   border-radius: 4px;
 }
@@ -254,21 +248,22 @@
   text-underline-offset: 4px;
 }
 .itc-textlink:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }
 
-/* ── Surfaces: white lift on cream, hairline borders, no shadows ── */
+/* ── Surfaces ── */
 .itc-card {
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 12px;
+  border-radius: 14px;
 }
 .itc-mockup {
   background: var(--surface);
   border: 1px solid var(--hairline);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 12px;
+  box-shadow: 0 24px 60px rgba(113, 28, 144, 0.08);
 }
 @media (min-width: 768px) {
   .itc-mockup {
@@ -276,247 +271,154 @@
   }
 }
 .itc-mockup-media {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--hairline-soft);
   overflow: hidden;
   background: var(--canvas);
 }
 
-/* ── Hero ── */
+/* ── Hero: bright white with the pink aurora drifting in from the right ── */
 .itc-hero {
   align-items: center;
+  background-color: var(--canvas);
+  background-image: url("/brand/hero-aurora.webp");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  min-height: calc(100svh - 150px);
-  padding-top: clamp(104px, 12vh, 176px);
-  padding-bottom: clamp(96px, 12vh, 144px);
+  min-height: min(84svh, 820px);
+  padding-top: clamp(112px, 13vh, 184px);
+  padding-bottom: clamp(88px, 11vh, 136px);
   position: relative;
-  text-align: center;
+  text-align: left;
 }
+/* Soft white veil over the art on the text side so the headline always sits
+   on a clean field, whatever the artwork does behind it. */
 .itc-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  transition: background-color 0.18s ease;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.78) 46%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
 }
 .itc-hero .itc-container {
   position: relative;
   z-index: 1;
 }
-/* Out of flow so the hero's vertical centering ignores the laurel and the
-   headline block sits exactly where it did without it. */
-.itc-hero-ph-laurel {
-  color: var(--ink);
+.itc-hero-brandline {
+  align-items: center;
   display: inline-flex;
-  position: absolute;
-  bottom: calc(100% + 28px);
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.85;
-  transition: opacity 0.18s ease;
+  gap: 10px;
+  margin: 0 0 24px;
 }
-.itc-hero-ph-laurel:hover {
-  opacity: 1;
-}
-.itc-hero-ph-laurel svg {
-  height: 44px;
+.itc-hero-brandline img {
+  height: 30px;
   width: auto;
 }
-@media (max-width: 767px) {
-  .itc-hero-ph-laurel {
-    bottom: calc(100% + 20px);
-  }
-  .itc-hero-ph-laurel svg {
-    height: 38px;
-  }
+.itc-hero-brandline span {
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .itc-hero-title {
   color: var(--ink);
-  transition: color 0.18s ease;
+  max-width: 820px;
 }
 .itc-hero-subtitle {
-  transition:
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
-}
-@media (max-width: 767px) {
-  .itc-hero {
-    min-height: calc(100svh - 120px);
-    padding-top: 72px;
-    padding-bottom: 88px;
-  }
+  color: var(--ink-muted);
+  max-width: 620px;
+  margin: 24px 0 0;
 }
 .itc-hero-ctas {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 32px;
-}
-.itc-hero-cta-group {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+  margin-top: 36px;
 }
 .itc-hero-cta-note {
-  margin: 0;
+  margin: 12px 0 0;
   color: var(--ink-subtle);
   font-size: 13px;
   line-height: 1.4;
+}
+@media (max-width: 767px) {
+  .itc-hero {
+    min-height: auto;
+    padding-top: 104px;
+    padding-bottom: 72px;
+  }
+  .itc-hero::before {
+    background: rgba(255, 255, 255, 0.86);
+  }
 }
 @media (max-width: 479px) {
   .itc-hero-ctas {
     flex-direction: column;
     align-items: stretch;
   }
-  .itc-hero-cta-group {
-    align-items: stretch;
-  }
-  .itc-hero-cta-note {
-    text-align: center;
-  }
 }
 
-/* ── Testimonial band (colors driven by --q-* palette vars) ── */
-.itc-inverse {
-  background: var(--q-bg);
-  color: var(--q-text);
+/* ── Capture That Media band: soft pink wash with white credential cards ── */
+.itc-ctm-band {
+  background: linear-gradient(180deg, var(--wash) 0%, var(--wash-2) 100%);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: 84px 0;
 }
-.itc-testimonials {
-  padding: 72px 0;
-}
-.itc-testimonials-title {
-  max-width: none;
-  text-align: center;
-  white-space: nowrap;
-}
-.itc-quote-mark {
-  color: var(--q-mark);
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 0.5;
-}
-.itc-quote-grid {
+.itc-ctm-grid {
   display: grid;
-  gap: 20px;
+  gap: 40px;
+  align-items: center;
 }
-@media (min-width: 768px) {
-  .itc-quote-grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: 980px) {
+  .itc-ctm-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 72px;
   }
 }
-@media (max-width: 767px) {
-  .itc-testimonials {
-    padding: 56px 0;
-  }
-  .itc-testimonials-title {
-    white-space: normal;
-  }
+.itc-ctm-copy {
+  color: var(--ink-muted);
 }
-.itc-quote-card {
+.itc-ctm-facts {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.itc-ctm-fact {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 6px 20px rgba(113, 28, 144, 0.06);
+}
+.itc-ctm-fact-label {
+  color: var(--ink-subtle);
+  font-size: 12px;
+  letter-spacing: 0.06em;
   margin: 0;
-  background: var(--q-card);
-  border: 1px solid var(--q-card-border);
-  border-radius: 12px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  text-transform: uppercase;
 }
-.itc-quote-text {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  color: var(--q-text);
-  text-wrap: pretty;
-  flex: 1;
+.itc-ctm-fact-value {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0 0;
 }
-.itc-quote-attr {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-.itc-quote-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 9999px;
-  background: var(--q-avatar-bg);
-  color: var(--q-avatar-fg);
-  font-size: 14px;
-  font-weight: 500;
-  flex: none;
-  overflow: hidden;
-}
-.itc-quote-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.itc-quote-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-  line-height: 1.3;
-}
-.itc-quote-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--q-text);
-}
-.itc-quote-handle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--q-muted);
-  text-decoration: none;
-}
-.itc-quote-handle:hover {
-  color: var(--q-text);
-}
-.itc-quote-handle:focus-visible {
-  outline: 2px solid var(--q-text);
-  outline-offset: 3px;
-  border-radius: 4px;
+@media (max-width: 479px) {
+  .itc-ctm-facts {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Product grid ── */
-.itc-feature-grid {
-  display: grid;
-  gap: 24px;
-  margin-top: 24px;
-}
-@media (min-width: 768px) {
-  .itc-feature-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.itc-feature-card {
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  text-decoration: none;
-  transition: border-color 0.15s ease;
-}
-.itc-feature-card:hover {
-  border-color: var(--ink);
-}
-.itc-feature-card:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
-.itc-feature-card-body {
-  padding: 16px 8px 8px;
-}
 .itc-feature-list-grid {
   display: grid;
   gap: 16px;
@@ -530,13 +432,16 @@
 .itc-feature-list-card {
   min-height: 128px;
   padding: 20px;
-  transition: border-color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .itc-feature-list-card:hover {
-  border-color: var(--ink);
+  border-color: var(--brand-pink);
+  box-shadow: 0 8px 24px rgba(242, 102, 232, 0.14);
 }
 .itc-feature-list-card:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }
 .itc-feature-more-header {
@@ -547,14 +452,12 @@
   margin-top: 24px;
 }
 
-/* ── MCP (the single orange moment) ── */
+/* ── MCP: pink wash section with one dark terminal card for contrast ── */
 .itc-mcp-section {
-  background: #eee8de;
+  background: var(--wash);
   border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
   padding: 84px 0 92px;
-}
-.itc-hero + .itc-mcp-section {
-  margin-top: 24px;
 }
 .itc-mcp-grid {
   display: grid;
@@ -571,33 +474,31 @@
   .itc-mcp-section {
     padding: 64px 0;
   }
-  .itc-hero + .itc-mcp-section {
-    margin-top: 28px;
-  }
 }
 .itc-terminal {
   background: var(--term-bg);
   border-radius: 16px;
   overflow: hidden;
   min-width: 0;
+  box-shadow: 0 24px 60px rgba(113, 28, 144, 0.18);
 }
 .itc-terminal-bar {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  border-bottom: 1px solid #2a2a29;
+  border-bottom: 1px solid #352a41;
 }
 .itc-terminal-dot {
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: #313130;
+  background: #453853;
 }
 .itc-terminal-label {
   margin-left: 8px;
   font-size: 12px;
-  color: var(--inverse-muted);
+  color: #a89bb5;
 }
 .itc-terminal pre {
   margin: 0;
@@ -606,16 +507,16 @@
   font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   font-size: 13px;
   line-height: 1.7;
-  color: #d6d3ce;
+  color: #ddd5e6;
 }
-.itc-terminal .t-orange {
-  color: var(--orange);
+.itc-terminal .t-accent {
+  color: var(--brand-cyan);
 }
 .itc-terminal .t-bright {
   color: #ffffff;
 }
 .itc-terminal .t-dim {
-  color: var(--inverse-muted);
+  color: #a89bb5;
 }
 .itc-agent-icons {
   display: flex;
@@ -625,7 +526,8 @@
 }
 .itc-agent-icon {
   align-items: center;
-  background: var(--surface-2);
+  background: #ffffff;
+  border: 1px solid var(--hairline);
   border-radius: 10px;
   display: inline-flex;
   height: 44px;
@@ -638,10 +540,34 @@
   width: 28px;
 }
 
-/* ── Footer ── */
+/* ── Footer: bright, logo lockup and full contact details ── */
 .itc-footer {
-  background: #eee8de;
+  background: linear-gradient(180deg, var(--canvas) 0%, var(--wash) 100%);
   border-top: 1px solid var(--hairline);
+  color: var(--ink-muted);
+}
+.itc-footer-brand img {
+  height: 84px;
+  width: auto;
+}
+.itc-footer-tagline {
+  color: var(--ink-muted);
+  font-size: 15px;
+  margin: 16px 0 0;
+  max-width: 340px;
+}
+.itc-footer-nap {
+  color: var(--ink-subtle);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+}
+.itc-footer-nap a {
+  color: var(--brand-purple);
+}
+.itc-footer-nap a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .itc-sitefooter {
   font-size: 14px;
@@ -653,22 +579,22 @@
   transition: color 0.15s ease;
 }
 .itc-sitefooter a:hover {
-  color: var(--ink);
+  color: var(--brand-purple);
 }
 .itc-newsletter input {
   border-color: var(--hairline) !important;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
 }
 .itc-newsletter input:focus {
-  border-color: var(--ink) !important;
+  border-color: var(--brand-purple) !important;
   box-shadow: none !important;
 }
 .itc-newsletter button {
-  border-radius: 8px !important;
-  background: var(--ink) !important;
+  border-radius: 10px !important;
+  background: var(--brand-purple) !important;
 }
 
-/* ── Floating Discord pill (quiet messenger-style nod) ── */
+/* ── Floating contact pill ── */
 .itc-contact {
   position: fixed;
   right: 20px;
@@ -677,20 +603,23 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--ink);
+  background: var(--brand-purple);
   color: #ffffff;
   border-radius: 9999px;
   padding: 12px 18px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: background-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .itc-contact:hover {
-  background: #000000;
+  background: var(--brand-purple-deep);
+  box-shadow: 0 8px 24px rgba(242, 102, 232, 0.4);
 }
 .itc-contact:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--brand-purple);
   outline-offset: 2px;
 }
 @media (max-width: 767px) {

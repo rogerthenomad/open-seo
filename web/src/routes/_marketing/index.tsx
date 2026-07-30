@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing-page";
 import { buildPageSeo } from "@/lib/seo";
 
-const homeTitle = "Run Your SEO - Open Source SEO Platform";
+const homeTitle = "Run Your SEO - SEO and AI Visibility Platform";
 const homeDescription =
-  "Run Your SEO is the open source alternative to Ahrefs and Semrush. Keyword research, backlinks, rank tracking, and site audits, billed by usage instead of a $100-plus monthly subscription. Self-host it free, or connect it to your AI agents over MCP.";
+  "Run Your SEO by Capture That Media. Keyword research, backlinks, rank tracking, site audits, and AI visibility, billed by the data you use instead of a $100 plus monthly subscription. Works with your AI agents over MCP.";
 
 export const Route = createFileRoute("/_marketing/")({
   head: () => {
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/_marketing/")({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
         },
       ],
     };

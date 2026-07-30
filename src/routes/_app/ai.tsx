@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import { captureClientEvent } from "@/client/lib/posthog";
 import { ClaudeIcon, CodexIcon } from "@/client/features/ai-mcp/AgentIcons";
 import { AvailableTools } from "@/client/features/ai-mcp/AvailableTools";
@@ -11,7 +10,6 @@ import {
 
 const SUPPORT_URL = "https://www.capturethatmedia.com/contact";
 const SUPPORT_EMAIL = "roger@capturethatmedia.com";
-const SAM_GITHUB_URL = "https://github.com/every-app/sam";
 const SKILL_NAMES = [
   "seo-project-setup",
   "seo-coach",
@@ -264,24 +262,6 @@ function AiPage() {
           <div className="mt-5">
             <AvailableTools />
           </div>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-base font-semibold">Sam: AI SEO teammate</h2>
-          <p className="mt-1.5 text-sm text-base-content/70 leading-relaxed">
-            Sam is an experimental content workflow for Claude Code and other
-            coding agents. It combines keyword research, source discovery,
-            drafting, and QA.
-          </p>
-          <a
-            href={SAM_GITHUB_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-base-content transition-colors hover:text-base-content/60"
-          >
-            View Sam on GitHub
-            <ArrowUpRight className="size-3.5" />
-          </a>
         </section>
 
         <section className="mt-12">

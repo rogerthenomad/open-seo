@@ -65,7 +65,7 @@ export function WelcomeMessage({
       </div>
       <div className="min-w-0 flex-1 space-y-3 pt-0.5 text-sm">
         <div className="space-y-3 text-base-content/80">
-          <p>Hey, I’m Sam — welcome to Run Your SEO.</p>
+          <p>Hey, I’m Sam. Welcome to Run Your SEO.</p>
           <p>
             To get full access to Run Your SEO, you need to upgrade to the paid
             plan. But, I’m here if you have any questions.
@@ -135,7 +135,7 @@ export function UpgradeSidebar({
 }) {
   const features = [
     "Keyword research, backlinks, rank tracking & site audits",
-    "Google Search Console — read-only, no credits, no Google Cloud setup",
+    "Google Search Console included: read only, no credits, no Google Cloud setup",
     "Connect Claude, Cursor, Codex & other MCP clients",
     "Top-up credits roll over and never expire",
   ];
@@ -161,12 +161,13 @@ export function UpgradeSidebar({
       <div className="flex flex-1 flex-col gap-5 px-6 py-6">
         <div>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-3xl font-semibold tracking-tight">$10</span>
-            <span className="text-sm text-base-content/55">/month</span>
+            <span className="text-3xl font-semibold tracking-tight">
+              Full access
+            </span>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-base-content/55">
-            Includes $10 of usage credits every month, plus a 30-day money-back
-            guarantee.
+            Usage based plans sized by the Capture That Media team, with monthly
+            usage credits included.
           </p>
         </div>
 
@@ -247,7 +248,7 @@ export function ChatGate({
           {isStartingCheckout ? "Redirecting..." : "Upgrade to continue"}
         </button>
         <p className="mt-2 text-xs text-base-content/45">
-          30-day money-back guarantee
+          Questions first? Call Capture That Media at (210) 934-1975
         </p>
       </div>
     </div>

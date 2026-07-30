@@ -1,6 +1,7 @@
 const DEFAULT_SITE_URL = "https://your-domain.com";
 const DEFAULT_SOCIAL_IMAGE_PATH = "/social-card.png";
-const DEFAULT_SOCIAL_IMAGE_ALT = "Run Your SEO product preview";
+const DEFAULT_SOCIAL_IMAGE_ALT =
+  "Run Your SEO by Capture That Media";
 
 export const SITE_URL = (
   process.env.SITE_URL ??

@@ -105,11 +105,11 @@
     "dataforseo-client": "^2.0.25",
     "drizzle-orm": "^0.45.2",
     "fast-xml-parser": "^5.10.1",
-    "jose": "^6.2.3",
+    "jose": "^6.2.4",
     "lucide-react": "^0.542.0",
     "papaparse": "^5.5.4",
     "postgres": "^3.4.9",
-    "posthog-js": "^1.405.3",
+    "posthog-js": "^1.406.2",
     "posthog-node": "^5.46.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -124,7 +124,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.45.1",
+    "@cloudflare/vite-plugin": "^1.46.0",
     "@cloudflare/workers-types": "^4.20260702.1",
     "@effect/platform-node": "4.0.0-beta.93",
     "@libsql/client": "^0.15.15",
@@ -141,7 +141,7 @@
     "drizzle-kit": "^0.31.10",
     "effect": "4.0.0-beta.93",
     "knip": "^5.88.1",
-    "oxlint": "^1.74.0",
+    "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^0.15.0",
     "portless": "^0.5.2",
     "prettier": "^3.9.6",
@@ -150,6 +150,6 @@
     "vite": "^7.3.6",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.7",
-    "wrangler": "^4.112.0"
+    "wrangler": "^4.113.0"
   }
 }

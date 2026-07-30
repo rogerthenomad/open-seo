@@ -52,7 +52,6 @@ Capture That Media is San Antonio's AI visibility marketing agency, founded in 2
 
 - Website: [capturethatmedia.com](https://www.capturethatmedia.com)
 - Phone: (210) 934-1975
-- Also from Roger: [The AI Cowboys](https://www.theaicowboys.com)
 
 ## Credits and license
 
