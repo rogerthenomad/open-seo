@@ -12,20 +12,20 @@ import {
   workersOAuthMcpPropsSchema,
 } from "@/server/mcp/context";
 import { getPublicOrigin } from "@/server/mcp/public-origin";
-import { registerOpenSeoMcpTools } from "@/server/mcp/server";
+import { registerRunYourSeoMcpTools } from "@/server/mcp/server";
 
-function createOpenSeoMcpServer() {
+function createRunYourSeoMcpServer() {
   const server = new McpServer(
     {
-      name: "OpenSEO MCP",
-      title: "OpenSEO",
+      name: "Run Your SEO MCP",
+      title: "Run Your SEO",
       version: "0.0.11",
       description:
         "SEO research tools for AI agents: keyword research and metrics, SERP and local SERP results, domain and backlink analysis, rank tracking, and Google Search Console performance.",
-      websiteUrl: "https://openseo.so",
+      websiteUrl: "https://seo.capturethatmedia.com",
       icons: [
         {
-          src: "https://openseo.so/android-chrome-512x512.png",
+          src: "https://seo.capturethatmedia.com/android-chrome-512x512.png",
           mimeType: "image/png",
           sizes: ["512x512"],
         },
@@ -33,15 +33,15 @@ function createOpenSeoMcpServer() {
     },
     {
       instructions:
-        "OpenSEO research tools use credits. Proceed with normal focused research, but ask the user for confirmation before planned batches over 2,000 credits.",
+        "Run Your SEO research tools use credits. Proceed with normal focused research, but ask the user for confirmation before planned batches over 2,000 credits.",
     },
   );
-  registerOpenSeoMcpTools(server);
+  registerRunYourSeoMcpTools(server);
 
   return server;
 }
 
-export async function handleAuthenticatedOpenSeoMcpRequest(
+export async function handleAuthenticatedRunYourSeoMcpRequest(
   request: Request,
   props: unknown,
   env: unknown,
@@ -56,10 +56,10 @@ export async function handleAuthenticatedOpenSeoMcpRequest(
     return new Response("MCP auth context required", { status: 403 });
   }
 
-  return handleOpenSeoMcpRequest(request, result.data, env, ctx);
+  return handleRunYourSeoMcpRequest(request, result.data, env, ctx);
 }
 
-export async function handleSelfHostedOpenSeoMcpRequest(
+export async function handleSelfHostedRunYourSeoMcpRequest(
   request: Request,
   authMode: "cloudflare_access" | "local_noauth",
   env: unknown,
@@ -70,7 +70,7 @@ export async function handleSelfHostedOpenSeoMcpRequest(
   // CORS/preflight still needs to reach the MCP transport before auth context
   // exists, so OPTIONS intentionally bypasses context creation.
   if (request.method === "OPTIONS") {
-    return handleOpenSeoMcpRequest(request, undefined, env, ctx);
+    return handleRunYourSeoMcpRequest(request, undefined, env, ctx);
   }
 
   const baseUrl = getPublicOrigin(request);
@@ -87,10 +87,10 @@ export async function handleSelfHostedOpenSeoMcpRequest(
     }),
   );
 
-  return handleOpenSeoMcpRequest(request, props, env, ctx);
+  return handleRunYourSeoMcpRequest(request, props, env, ctx);
 }
 
-function handleOpenSeoMcpRequest(
+function handleRunYourSeoMcpRequest(
   request: Request,
   props: ReturnType<typeof createWorkersOAuthMcpProps> | undefined,
   env: unknown,
@@ -114,7 +114,7 @@ function handleOpenSeoMcpRequest(
     );
   }
 
-  const server = createOpenSeoMcpServer();
+  const server = createRunYourSeoMcpServer();
   const handler = createMcpHandler(server, {
     route: MCP_ROUTE,
     enableJsonResponse: true,

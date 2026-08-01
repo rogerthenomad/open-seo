@@ -8,11 +8,11 @@ import {
   DataforseoLabsGoogleRelatedKeywordsLiveRequestInfo,
   DataforseoLabsGoogleRelevantPagesLiveRequestInfo,
   DataforseoLabsGoogleSerpCompetitorsLiveRequestInfo,
-  type DataforseoLabsDomainRankOverviewLiveItem,
+  type DataforseoLabsGoogleDomainRankOverviewLiveItem,
   type DataforseoLabsGoogleKeywordOverviewLiveItem,
-  type DataforseoLabsRelatedKeywordsLiveItem,
-  type DataforseoLabsRelevantPagesLiveItem,
-  type DataforseoLabsSerpCompetitorsLiveItem,
+  type DataforseoLabsGoogleRelatedKeywordsLiveItem,
+  type DataforseoLabsGoogleRelevantPagesLiveItem,
+  type DataforseoLabsGoogleSerpCompetitorsLiveItem,
   type KeywordDataInfo,
 } from "dataforseo-client";
 import { labsApi } from "@/server/lib/dataforseo/core";
@@ -26,11 +26,11 @@ import {
 // SDK item models are 1:1 supersets of what we need, so we expose them directly
 // under the names the rest of the app already uses (no hand-written Zod).
 export type LabsKeywordDataItem = KeywordDataInfo;
-type RelatedKeywordItem = DataforseoLabsRelatedKeywordsLiveItem;
-type DomainMetricsItem = DataforseoLabsDomainRankOverviewLiveItem;
-export type RelevantPagesItem = DataforseoLabsRelevantPagesLiveItem;
+type RelatedKeywordItem = DataforseoLabsGoogleRelatedKeywordsLiveItem;
+type DomainMetricsItem = DataforseoLabsGoogleDomainRankOverviewLiveItem;
+export type RelevantPagesItem = DataforseoLabsGoogleRelevantPagesLiveItem;
 export type KeywordOverviewItem = DataforseoLabsGoogleKeywordOverviewLiveItem;
-type SerpCompetitorItem = DataforseoLabsSerpCompetitorsLiveItem;
+type SerpCompetitorItem = DataforseoLabsGoogleSerpCompetitorsLiveItem;
 
 // Ranked keywords is the one Labs endpoint the SDK types loosely: its
 // `ranked_serp_element.serp_item` is the base element item, so the url / etv /

@@ -8,7 +8,7 @@ import {
 import { ArrowUp, Check, Globe, Loader2, Sparkles } from "lucide-react";
 import { FREE_ONBOARDING_QUESTION_LIMIT } from "@/shared/onboardingChat";
 
-const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
+const SUPPORT_URL = "https://www.capturethatmedia.com/contact";
 
 export function SuggestedQuestions({
   questions,
@@ -65,24 +65,27 @@ export function WelcomeMessage({
       </div>
       <div className="min-w-0 flex-1 space-y-3 pt-0.5 text-sm">
         <div className="space-y-3 text-base-content/80">
-          <p>Hey, I’m Sam — welcome to OpenSEO.</p>
+          <p>Hey, I’m Sam. Welcome to Run Your SEO.</p>
           <p>
-            To get full access to OpenSEO, you need to upgrade to the paid plan.
-            But, I’m here if you have any questions.
+            To get full access to Run Your SEO, you need to upgrade to the paid
+            plan. But, I’m here if you have any questions.
           </p>
           <p>
             You can also{" "}
             <a
-              href={DISCORD_URL}
+              href={SUPPORT_URL}
               target="_blank"
               rel="noreferrer"
               className="link link-primary"
             >
-              join the Discord
+              contact Capture That Media
             </a>{" "}
             or email{" "}
-            <a href="mailto:ben@openseo.so" className="link link-primary">
-              ben@openseo.so
+            <a
+              href="mailto:roger@capturethatmedia.com"
+              className="link link-primary"
+            >
+              roger@capturethatmedia.com
             </a>{" "}
             if you have any questions I can’t help you with.
           </p>
@@ -132,7 +135,7 @@ export function UpgradeSidebar({
 }) {
   const features = [
     "Keyword research, backlinks, rank tracking & site audits",
-    "Google Search Console — read-only, no credits, no Google Cloud setup",
+    "Google Search Console included: read only, no credits, no Google Cloud setup",
     "Connect Claude, Cursor, Codex & other MCP clients",
     "Top-up credits roll over and never expire",
   ];
@@ -146,7 +149,9 @@ export function UpgradeSidebar({
           <Globe className="size-4" />
         </span>
         <div className="min-w-0">
-          <p className="font-medium text-base-content/80">Previewing OpenSEO</p>
+          <p className="font-medium text-base-content/80">
+            Previewing Run Your SEO
+          </p>
           <p className="truncate" title={domain}>
             {domain}
           </p>
@@ -156,12 +161,13 @@ export function UpgradeSidebar({
       <div className="flex flex-1 flex-col gap-5 px-6 py-6">
         <div>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-3xl font-semibold tracking-tight">$10</span>
-            <span className="text-sm text-base-content/55">/month</span>
+            <span className="text-3xl font-semibold tracking-tight">
+              Full access
+            </span>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-base-content/55">
-            Includes $10 of usage credits every month, plus a 30-day money-back
-            guarantee.
+            Usage based plans sized by the Capture That Media team, with monthly
+            usage credits included.
           </p>
         </div>
 
@@ -187,14 +193,14 @@ export function UpgradeSidebar({
             {isStartingCheckout ? "Redirecting..." : "Upgrade to continue"}
           </button>
           <p className="text-center text-xs leading-relaxed text-base-content/55">
-            Want advice from other OpenSEO users?{" "}
+            Want a second opinion on your SEO?{" "}
             <a
-              href={DISCORD_URL}
+              href={SUPPORT_URL}
               target="_blank"
               rel="noreferrer"
               className="link link-primary"
             >
-              Join the Discord
+              Talk to Capture That Media
             </a>
             .
           </p>
@@ -231,7 +237,7 @@ export function ChatGate({
           That’s all {FREE_ONBOARDING_QUESTION_LIMIT} free questions
         </p>
         <p className="mx-auto mt-1 max-w-md text-xs text-base-content/70">
-          Upgrade to keep working with Sam and unlock the full OpenSEO app.
+          Upgrade to keep working with Sam and unlock the full Run Your SEO app.
         </p>
         <button
           type="button"
@@ -242,7 +248,7 @@ export function ChatGate({
           {isStartingCheckout ? "Redirecting..." : "Upgrade to continue"}
         </button>
         <p className="mt-2 text-xs text-base-content/45">
-          30-day money-back guarantee
+          Questions first? Call Capture That Media at (210) 934-1975
         </p>
       </div>
     </div>
@@ -252,7 +258,7 @@ export function ChatGate({
 export function ChatComposer({
   busy,
   onSend,
-  placeholder = "Ask Sam about your strategy or OpenSEO…",
+  placeholder = "Ask Sam about your strategy or Run Your SEO…",
 }: {
   busy: boolean;
   onSend: (text: string) => void;

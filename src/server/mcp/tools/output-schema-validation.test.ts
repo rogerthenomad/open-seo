@@ -47,7 +47,7 @@ const authContext = {
   organizationId: "org_123",
   clientId: "client_123",
   scopes: ["mcp"],
-  audience: "open-seo",
+  audience: "run-your-seo",
   subject: "user_123",
   baseUrl: "https://app.example.com",
 };

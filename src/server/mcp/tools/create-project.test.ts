@@ -19,9 +19,9 @@ const authContext = {
   organizationId: "org_123",
   clientId: "client_123",
   scopes: ["mcp"],
-  audience: "https://open-seo.test/mcp",
+  audience: "https://run-your-seo.test/mcp",
   subject: "user_123",
-  baseUrl: "https://open-seo.test",
+  baseUrl: "https://run-your-seo.test",
 };
 
 const toolExtra: ToolExtra = {
@@ -33,7 +33,7 @@ const toolExtra: ToolExtra = {
     token: "token",
     clientId: "client_123",
     scopes: ["mcp"],
-    resource: new URL("https://open-seo.test/mcp"),
+    resource: new URL("https://run-your-seo.test/mcp"),
     extra: { [MCP_AUTH_CONTEXT_PROP]: authContext },
   } satisfies AuthInfo,
 };
@@ -72,7 +72,7 @@ describe("create_project MCP tool", () => {
       domain: "acme.com",
       locationCode: 2840,
       languageCode: "en",
-      url: "https://open-seo.test/p/project_new",
+      url: "https://run-your-seo.test/p/project_new",
     });
     const first = result.content?.[0];
     expect(first?.type).toBe("text");

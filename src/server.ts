@@ -11,12 +11,12 @@ import { getOrCreateOrganizationCustomer } from "@/server/billing/subscription";
 import { isHostedServerAuthMode } from "@/server/lib/runtime-env";
 import { getAuthMode, isHostedAuthMode } from "@/lib/auth-mode";
 import {
-  createOpenSeoOAuthProvider,
-  type OpenSeoOAuthEnv,
+  createRunYourSeoOAuthProvider,
+  type RunYourSeoOAuthEnv,
 } from "@/server/mcp/oauth-provider";
 import { requestWithPublicOrigin } from "@/server/mcp/public-origin";
 import { MCP_ROUTE } from "@/server/mcp/context";
-import { handleSelfHostedOpenSeoMcpRequest } from "@/server/mcp/transport";
+import { handleSelfHostedRunYourSeoMcpRequest } from "@/server/mcp/transport";
 import { withPgClient } from "@/db";
 import {
   AUTUMN_WEBHOOK_PATH,
@@ -25,7 +25,7 @@ import {
 import { maybeSendSelfHostHeartbeat } from "@/server/lib/self-host-telemetry";
 
 const appFetch = createStartHandler(defaultStreamHandler);
-const openSeoOAuthProvider = createOpenSeoOAuthProvider(appFetch);
+const runYourSeoOAuthProvider = createRunYourSeoOAuthProvider(appFetch);
 
 // Authorize an onboarding-chat connection in the Worker, before it reaches the
 // Durable Object. The DO instance name is the projectId (set client-side); we
@@ -153,9 +153,9 @@ function handleFetch(
       return handleAutumnWebhookRequest(publicRequest);
     }
 
-    return openSeoOAuthProvider.fetch(
+    return runYourSeoOAuthProvider.fetch(
       publicRequest,
-      env as OpenSeoOAuthEnv,
+      env as RunYourSeoOAuthEnv,
       ctx,
     );
   }
@@ -164,7 +164,12 @@ function handleFetch(
     (authMode === "cloudflare_access" || authMode === "local_noauth") &&
     pathname === MCP_ROUTE
   ) {
-    return handleSelfHostedOpenSeoMcpRequest(publicRequest, authMode, env, ctx);
+    return handleSelfHostedRunYourSeoMcpRequest(
+      publicRequest,
+      authMode,
+      env,
+      ctx,
+    );
   }
 
   return appFetch(request);

@@ -11,7 +11,7 @@ import {
   workerName,
 } from "./alchemy.access.ts";
 
-// Preview hostnames are `open-seo-<stage>.<WORKERS_SUBDOMAIN>` — the naming
+// Preview hostnames are `run-your-seo-<stage>.<WORKERS_SUBDOMAIN>` — the naming
 // lives in alchemy.access.ts, shared with the Access wildcard the security
 // boundary depends on. The shell copy in .github/workflows/pr-preview.yml
 // must be kept in sync by hand.
@@ -22,7 +22,7 @@ import {
 //
 // - Any stage except "hosted-prod": fresh stage-suffixed resources. Previews
 //   deploy via `pnpm deploy:preview --stage <name>`.
-// - Stage "hosted-prod": names the EXISTING openseo.so production resources
+// - Stage "hosted-prod": names the EXISTING seo.capturethatmedia.com production resources
 //   so `--adopt` imports them. Deploy via `pnpm deploy:postgres` (--adopt and
 //   the stage baked in).
 //
@@ -64,11 +64,11 @@ const wrangler = z
 // Physical names of the wrangler-era production resources (see git history of
 // wrangler.jsonc). Adoption matches on these exact names/titles.
 const PROD_NAMES = {
-  d1: "open-seo",
-  r2: "open-seo",
+  d1: "run-your-seo",
+  r2: "run-your-seo",
   kv: "every-super-seo",
   oauthKv: "OAUTH_KV",
-  hyperdrive: "openseo",
+  hyperdrive: "runyourseo",
 } as const;
 
 const makeResources = (stage: string) => {
@@ -79,20 +79,20 @@ const makeResources = (stage: string) => {
   const keep = Alchemy.RemovalPolicy.retain(prod);
   return {
     DB: Cloudflare.D1.Database("DB", {
-      name: prod ? PROD_NAMES.d1 : `open-seo-db-${stage}`,
+      name: prod ? PROD_NAMES.d1 : `run-your-seo-db-${stage}`,
       // drizzle-generated SQL migrations; tracked in the same
       // wrangler-compatible table prod already uses.
       migrationsDir: "drizzle",
       migrationsTable: "d1_migrations",
     }).pipe(keep),
     R2: Cloudflare.R2.Bucket("R2", {
-      name: prod ? PROD_NAMES.r2 : `open-seo-r2-${stage}`,
+      name: prod ? PROD_NAMES.r2 : `run-your-seo-r2-${stage}`,
     }).pipe(keep),
     KV: Cloudflare.KV.Namespace("KV", {
-      title: prod ? PROD_NAMES.kv : `open-seo-kv-${stage}`,
+      title: prod ? PROD_NAMES.kv : `run-your-seo-kv-${stage}`,
     }).pipe(keep),
     OAUTH_KV: Cloudflare.KV.Namespace("OAUTH_KV", {
-      title: prod ? PROD_NAMES.oauthKv : `open-seo-oauth-kv-${stage}`,
+      title: prod ? PROD_NAMES.oauthKv : `run-your-seo-oauth-kv-${stage}`,
     }).pipe(keep),
   };
 };
@@ -169,7 +169,7 @@ const dataEnv = {
 };
 
 export default Alchemy.Stack(
-  "open-seo",
+  "run-your-seo",
   {
     providers: Cloudflare.providers(),
     // Durable state in the Cloudflare state store (an `alchemy-state-store`
@@ -198,7 +198,7 @@ export default Alchemy.Stack(
       if (!authUrl) {
         return yield* Effect.die(
           new Error(
-            "Set BETTER_AUTH_URL (https://app.openseo.so) in .env.production.",
+            "Set BETTER_AUTH_URL (https://app.<APP_DOMAIN>) in .env.production.",
           ),
         );
       }
@@ -230,10 +230,28 @@ export default Alchemy.Stack(
     const teamDomain = yield* optionalVar("TEAM_DOMAIN");
     const policyAud = yield* optionalVar("POLICY_AUD");
 
-    const app = yield* Cloudflare.Worker("open-seo", {
+    // Prod custom domain. APP_DOMAIN is the EXACT hostname the app serves
+    // (production: seo-app.capturethatmedia.com). It stays env-driven so a
+    // prod deploy fails loudly if unset or if the zone is not in this
+    // Cloudflare account. Kept a single level below the apex on purpose:
+    // Cloudflare universal SSL covers *.capturethatmedia.com but not
+    // deeper subdomains. The zone is inferred from the hostname.
+    let prodDomains: string[] | undefined;
+    if (prod) {
+      const appDomain = yield* optionalVar("APP_DOMAIN");
+      if (!appDomain) {
+        return yield* Effect.die(
+          new Error(
+            "Set APP_DOMAIN (the exact app hostname, e.g. seo-app.capturethatmedia.com) in .env.production. Its zone must already be in this Cloudflare account.",
+          ),
+        );
+      }
+      prodDomains = [appDomain];
+    }
+
+    const app = yield* Cloudflare.Worker("run-your-seo", {
       name: workerName(stage),
-      // Prod serves the real domains; the zone is inferred from the hostname.
-      domain: prod ? ["app.openseo.so", "www.app.openseo.so"] : undefined,
+      domain: prodDomains,
       // Prebuilt worker from `vite build` (@cloudflare/vite-plugin). The entry
       // exports the DO + WorkflowEntrypoint classes (re-exported by
       // src/server.ts), which `bundle: false` requires. Sibling chunks under
@@ -298,7 +316,7 @@ export default Alchemy.Stack(
         ),
       },
     }).pipe(
-      // Prod adopts the live worker serving app.openseo.so; never delete it
+      // Prod adopts the live worker serving seo-app.capturethatmedia.com; never delete it
       // on destroy. (Workflow registrations aren't individually retainable —
       // they're created inside the worker provider — but re-registering them
       // is a lossless upsert, unlike deleting the data-bearing resources.)

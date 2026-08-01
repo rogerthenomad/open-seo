@@ -6,6 +6,10 @@ minimumReleaseAgeExclude:
   # the window. Exact-pinned in package.json.
   - "alchemy"
   - "@distilled.cloud/*"
+  # TEMPORARY (remove after 2026-07-31): brace-expansion 5.0.8 (security floor
+  # for GHSA-mh99-v99m-4gvg) published 2026-07-23 — 2 days shy of the window.
+  # Floored to ^5.0.8 in overrides below.
+  - "brace-expansion"
 
 # Advisories triaged as not applicable. Re-review when the parent updates.
 # - GHSA-67mh-4wv8-2f99: esbuild <=0.24.2 dev-server CORS. Only reachable via
@@ -27,6 +31,8 @@ auditConfig:
 overrides:
   # GHSA-4x5r-pxfx-6jf8 — waiting on @tanstack/devtools-vite
   "@babel/core": "^7.29.6"
+  # GHSA-mh99-v99m-4gvg — waiting on minimatch (declares ^5.0.5; floor sits inside it)
+  "brace-expansion@5": "^5.0.8"
   # GHSA-737v-mqg7-c878 — waiting on better-auth
   defu: "^6.1.5"
   # 13 advisories incl. GHSA-x4vx-rjvf-j5p4, GHSA-gvmj-g25r-r7wr — waiting on posthog-js

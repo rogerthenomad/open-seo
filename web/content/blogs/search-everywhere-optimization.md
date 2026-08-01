@@ -58,7 +58,7 @@ Where Zak gets most animated is workflow. Finder US has moved the team into [Cla
 
 His weekly team trainings are now about building a "second brain" in [Obsidian](https://obsidian.md/): dumping your entire SEO process, decision log, and context into markdown so any model can run your playbook. From there he's built a "publisher" agent that does keyword research, customer profiling, the brief, competitor and deep research, internal linking, and the push into the CMS end-to-end.
 
-This is the shift OpenSEO was built for. The terminal-native workflow works because the data stopped being locked inside thousand-dollar suites, the same flattening Zak is describing. OpenSEO is open source and usage-based, and it ships an [MCP server](/docs/mcp) so an agent can run [keyword research](/features/keyword-research), inspect SERPs, and read your [Search Console](/google-search-console-mcp) data from inside Claude Code, with no dashboard and no context-switching.
+This is the shift Run Your SEO was built for. The terminal-native workflow works because the data stopped being locked inside thousand-dollar suites, the same flattening Zak is describing. Run Your SEO is open source and usage-based, and it ships an [MCP server](/docs/mcp) so an agent can run [keyword research](/features/keyword-research), inspect SERPs, and read your [Search Console](/google-search-console-mcp) data from inside Claude Code, with no dashboard and no context-switching.
 
 ## Keyword research didn't die, it got directional
 

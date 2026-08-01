@@ -12,13 +12,13 @@ const mcpContext = {
   organizationId: "org_123",
   clientId: "client_123",
   scopes: ["offline_access", "mcp"],
-  audience: "https://open-seo.test/mcp",
+  audience: "https://run-your-seo.test/mcp",
   subject: "user_123",
-  baseUrl: "https://open-seo.test",
+  baseUrl: "https://run-your-seo.test",
 };
 
 describe("withWorkersOAuthMcpScopes", () => {
-  it("stores the OpenSEO MCP context in Workers OAuth props", () => {
+  it("stores the Run Your SEO MCP context in Workers OAuth props", () => {
     const props = createWorkersOAuthMcpProps(mcpContext);
 
     expect(workersOAuthMcpPropsSchema.parse(props)).toEqual({

@@ -7,8 +7,34 @@ concurrency:
   group: sourcemaps-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # Only this repo uploads, and only once POSTHOG_CLI_TOKEN is configured, so a
+  # fork or an unconfigured clone stays green instead of failing every push to
+  # main. The secrets context is not available in a job-level `if`, so this gate
+  # turns "is PostHog configured" into an output that `upload` can branch on.
+  # Skipping the whole job matters: guarding only the inner steps leaves
+  # setup-node's post-run cache save looking for a pnpm store that
+  # `pnpm install` never created, which fails the run.
+  gate:
+    if: github.repository == 'rogerthenomad/Run-Your-SEO'
+    runs-on: ubuntu-latest
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - name: Check whether PostHog is configured
+        id: check
+        env:
+          POSTHOG_CLI_TOKEN: ${{ secrets.POSTHOG_CLI_TOKEN }}
+        run: |
+          if [ -n "$POSTHOG_CLI_TOKEN" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "POSTHOG_CLI_TOKEN is not configured, skipping sourcemap upload."
+          fi
+
   upload:
-    if: github.repository != 'every-app/open-seo'
+    needs: gate
+    if: needs.gate.outputs.configured == 'true'
     runs-on: ubuntu-latest
     env:
       POSTHOG_SOURCEMAPS: "true"

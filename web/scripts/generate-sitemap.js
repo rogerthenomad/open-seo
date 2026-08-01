@@ -12,7 +12,7 @@ const DIST_DIR = join(__dirname, "../dist/client");
 const BLOG_CONTENT_DIR = join(__dirname, "../content/blogs");
 const DOCS_CONTENT_DIR = join(__dirname, "../content/docs");
 
-const DEFAULT_SITE_URL = "https://openseo.so";
+const DEFAULT_SITE_URL = "https://seo.capturethatmedia.com";
 const SITE_URL = (process.env.SITE_URL ?? DEFAULT_SITE_URL).replace(/\/+$/, "");
 
 const STATIC_PATHS = [
@@ -24,7 +24,6 @@ const STATIC_PATHS = [
   "/docs",
   "/features",
   "/features/mcp",
-  "/open-source-seo",
   "/google-search-console-mcp",
   ...Object.values(FEATURE_PAGE_SLUGS).map((slug) => `/features/${slug}`),
 ];

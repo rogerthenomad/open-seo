@@ -1,6 +1,6 @@
 # Request explicit maintainer review for review-control changes.
-/.github/ @bensenescu
-/.greptile/ @bensenescu
-/AGENTS.md @bensenescu
-/CLAUDE.md @bensenescu
-/.agents/skills/ @bensenescu
+/.github/ @rogerthenomad
+/.greptile/ @rogerthenomad
+/AGENTS.md @rogerthenomad
+/CLAUDE.md @rogerthenomad
+/.agents/skills/ @rogerthenomad

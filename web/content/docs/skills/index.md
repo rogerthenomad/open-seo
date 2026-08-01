@@ -1,20 +1,20 @@
 ---
-title: "OpenSEO Agent Skills"
-description: "Add OpenSEO Agent Skills to Claude Code, Codex, or another AI agent so it can run repeatable SEO workflows with live OpenSEO data."
+title: "Run Your SEO Agent Skills"
+description: "Add Run Your SEO Agent Skills to Claude Code, Codex, or another AI agent so it can run repeatable SEO workflows with live Run Your SEO data."
 ---
 
-OpenSEO Agent Skills let you hand repeatable SEO workflows to your AI agent.
+Run Your SEO Agent Skills let you hand repeatable SEO workflows to your AI agent.
 
 Run a slash command when you need keyword research, clustering, competitor analysis, link prospecting, or project setup. The skill gives your agent the workflow instructions.
 
-You stay in charge of strategy. Your agent uses OpenSEO data and the skill instructions to return a recommendation, plan, or shortlist.
+You stay in charge of strategy. Your agent uses Run Your SEO data and the skill instructions to return a recommendation, plan, or shortlist.
 
-## Set up OpenSEO Agent Skills
+## Set up Run Your SEO Agent Skills
 
-1. [Set up OpenSEO MCP](/docs/mcp).
-2. [Set up OpenSEO Agent Skills](/docs/skills/setup).
+1. [Set up Run Your SEO MCP](/docs/mcp).
+2. [Set up Run Your SEO Agent Skills](/docs/skills/setup).
 
-MCP connects your agent to OpenSEO data. Skills tell your agent which SEO workflow to run.
+MCP connects your agent to Run Your SEO data. Skills tell your agent which SEO workflow to run.
 
 ## Start here
 
@@ -34,7 +34,7 @@ MCP connects your agent to OpenSEO data. Skills tell your agent which SEO workfl
 
 ## Learn more about skills
 
-OpenSEO uses the same `SKILL.md` pattern supported by modern AI agents. To learn how skills work in your agent, read:
+Run Your SEO uses the same `SKILL.md` pattern supported by modern AI agents. To learn how skills work in your agent, read:
 
 - [Claude Code skills documentation](https://docs.claude.com/en/docs/claude-code/skills)
 - [OpenAI Skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
@@ -43,4 +43,4 @@ OpenSEO uses the same `SKILL.md` pattern supported by modern AI agents. To learn
 
 These pages explain what each skill is for. The source instructions live in GitHub:
 
-- [OpenSEO Agent Skills on GitHub](https://github.com/every-app/open-seo/tree/main/.agents/skills)
+- [Run Your SEO Agent Skills on GitHub](https://github.com/rogerthenomad/Run-Your-SEO/tree/main/.agents/skills)

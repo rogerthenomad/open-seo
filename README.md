@@ -1,76 +1,65 @@
-# OpenSEO
+# Run Your SEO
 
-> Open source alternative to Semrush and Ahrefs
+> All in one SEO and AI visibility platform, built and run by [Capture That Media](https://www.capturethatmedia.com)
 
-OpenSEO is an SEO tool for _the people_. If tools like Semrush or Ahrefs are too expensive or bloated, OpenSEO is a pay-as-you-go alternative that you actually control.
+Run Your SEO is the SEO platform Capture That Media runs for its own clients. Keyword research, rank tracking, competitor insight, backlinks, site audits, and AI visibility in one place, plus an MCP server so your AI agents can work the same data you do.
 
-> All-in-one SEO tool for you and your AI agent.
+Built and maintained by Roger Wong Won and the Capture That Media team in San Antonio, Texas.
 
-Connect with any agent like Claude Code, OpenClaw or Hermes. We have pre-built skills, but you can build your own to tailor OpenSEO to your needs.
+- Marketing site: [seo.capturethatmedia.com](https://seo.capturethatmedia.com) (goes live in Phase 2 of the runbook)
+- Application: [seo-app.capturethatmedia.com](https://seo-app.capturethatmedia.com) (free workers.dev address first, domain in Phase 2)
+- Deploy runbook: [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md)
 
-<img width="1385" height="794" alt="Image" src="https://github.com/user-attachments/assets/fd208249-44ea-4849-bb4b-5fc896aeab73" />
+## Why it exists
 
-## Hosted Version
+Semrush and Ahrefs are expensive and bloated, and they still treat AI search as a bolt on. Run Your SEO is the opposite: focused workflows, no seat tax, and you bring your own DataForSEO key so you pay only for the data you actually pull.
 
-Try OpenSEO for free on our website. If you want to support the project, a hosted subscription is $10/month.
+- Best in class MCP server and agent skills.
+- Focused workflows instead of a sprawling suite nobody finishes learning.
+- No subscription. Bring your own DataForSEO API key.
+- Full control of the code and the data.
 
-[openseo.so](https://openseo.so)
-
-## Why use OpenSEO?
-
-- Best in class MCP and AI Skills.
-- Modern, simple UI.
-  - Focused workflows instead of a bloated, complex SEO suite.
-- No subscriptions.
-  - Bring your own DataForSEO API key and pay only for what you use.
-- Fork and vibe code your own custom tool.
-
-## Main SEO Workflows
+## What it does
 
 - Keyword research
 - Rank tracking
-- Competitor Insights
+- Competitor insight
 - Backlinks
-- Site Audits
-- AI Visibility
+- Site audits
+- AI visibility
 
-## OpenSEO MCP & Agent Skills
+## MCP and agent skills
 
-OpenSEO exposes an MCP server so AI agents like Claude Code, OpenClaw, and Hermes can use your SEO data directly. Agent Skills are reusable workflows that guide your agent through SEO tasks using the MCP.
+Run Your SEO exposes an MCP server, so agents like Claude Code, OpenClaw, and Hermes can use your SEO data directly. Agent skills are reusable workflows that walk an agent through SEO tasks over that MCP.
 
-- [Set up OpenSEO MCP](https://openseo.so/docs/mcp)
-- [Set up OpenSEO Agent Skills](https://openseo.so/docs/skills/setup)
+Setup lives in [`web/content/docs/mcp.md`](./web/content/docs/mcp.md) and [`web/content/docs/skills/setup.md`](./web/content/docs/skills/setup.md).
 
-## Self-Hosting
+## Running it
 
-OpenSEO supports two self-hosting paths:
+Two paths:
 
-- **Simple: Docker** for personal use on your own machine (recommended for getting started). See [`docs/SELF_HOSTING_DOCKER.md`](./docs/SELF_HOSTING_DOCKER.md).
-- **Advanced: Cloudflare** for internet-facing self-hosting across multiple devices or with your team (works on the free plan). See [`docs/SELF_HOSTING_CLOUDFLARE.md`](./docs/SELF_HOSTING_CLOUDFLARE.md).
+- **Docker** for a single machine. See [`docs/SELF_HOSTING_DOCKER.md`](./docs/SELF_HOSTING_DOCKER.md).
+- **Cloudflare** for team access over the internet, works on the free plan. See [`docs/SELF_HOSTING_CLOUDFLARE.md`](./docs/SELF_HOSTING_CLOUDFLARE.md).
 
-Either way, you need a DataForSEO API key to get SEO data. See [`docs/DATAFORSEO_API_KEY.md`](./docs/DATAFORSEO_API_KEY.md).
+Either path needs a DataForSEO API key for search data. See [`docs/DATAFORSEO_API_KEY.md`](./docs/DATAFORSEO_API_KEY.md).
 
-## Costs
+Local development: [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md).
 
-OpenSEO needs a [DataForSEO](https://dataforseo.com/?aff=255379) API key so that you can get SEO data. You pay them directly when self hosting.
+> **Going live.** The plan is free first: deploy both workers on the
+> Cloudflare free plan at workers.dev addresses with no DNS changes, then
+> attach seo.capturethatmedia.com and seo-app.capturethatmedia.com once the
+> zone is in the Cloudflare account. Both phases are in
+> [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md).
 
-See [openseo.so/pricing](https://openseo.so/pricing)
+## About Capture That Media
 
-When you self host, your costs will be slightly lower than the estimates on our website. The way the hosted service makes money is by charging 28% extra for every request we make to DataForSEO.
+Capture That Media is San Antonio's AI visibility marketing agency, founded in 2020 by Roger Wong Won. We help businesses show up everywhere their customers actually search: Google, answer engines, and AI assistants. Run Your SEO is the platform behind that work.
 
-## Local Development
+- Website: [capturethatmedia.com](https://www.capturethatmedia.com)
+- Phone: (210) 934-1975
 
-See [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md).
+## Credits and license
 
-## Contributing
+Run Your SEO builds on [OpenSEO](https://github.com/every-app/open-seo), the open source SEO platform created by Ben Senescu and its contributors, used under the MIT license. That upstream project is a genuinely good piece of work and this platform would not exist without it.
 
-Contributions are very welcome. See [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md).
-
-## Community
-
-Join Discord to chat: [Discord](https://discord.gg/c9uGs3cFXr)
-
-Follow along for updates:
-
-- Follow on X: https://x.com/bensenescu
-- Sign up for the mailing list on our website: [openseo.so](https://openseo.so)
+The MIT license requires keeping the original copyright notice, and we do. See [`LICENSE`](./LICENSE) and [`NOTICE.md`](./NOTICE.md). Capture That Media is not affiliated with or endorsed by the upstream project or its hosted service.

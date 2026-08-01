@@ -1,12 +1,20 @@
 # Docker Self-Hosting
 
-Run OpenSEO locally with Docker.
+Run Run Your SEO locally with Docker.
 
-In Docker mode, OpenSEO uses `AUTH_MODE=local_noauth` (no auth checks, local admin user `admin@localhost`). Only expose it behind your own auth-protected reverse proxy, tunnel, or private network.
+> **No image is published yet.** Images are cut from version tags (`v*`) or a
+> manual run of the "Publish Docker image" workflow, so `latest` does not exist
+> until the first release. Until then, build it locally:
+>
+> ```sh
+> docker build -f Dockerfile.selfhost -t ghcr.io/rogerthenomad/run-your-seo:latest .
+> ```
+
+In Docker mode, Run Your SEO uses `AUTH_MODE=local_noauth` (no auth checks, local admin user `admin@localhost`). Only expose it behind your own auth-protected reverse proxy, tunnel, or private network.
 
 The default `compose.yaml` uses the published GHCR image:
 
-- `ghcr.io/every-app/open-seo:latest`
+- `ghcr.io/rogerthenomad/run-your-seo:latest`
 
 ## Prerequisites
 
@@ -29,7 +37,7 @@ Optional env values:
 - `PORT` (defaults to `3001`)
 - `ALLOWED_HOST` (single reverse-proxy hostname to allow in Vite preview)
 - `AUTH_MODE=local_noauth` (already set in compose)
-- `OPEN_SEO_IMAGE` (defaults to `ghcr.io/every-app/open-seo:latest`)
+- `RUN_YOUR_SEO_IMAGE` (defaults to `ghcr.io/rogerthenomad/run-your-seo:latest`)
 
 If you are putting Docker behind a reverse proxy or a temporary tunnel, remember that Docker self-hosting runs with app auth disabled. Only expose it behind your own auth-protected reverse proxy, tunnel, or private network, and add the public hostname before restarting:
 
@@ -41,16 +49,16 @@ You can also persist it in `.env`.
 
 ## Telemetry
 
-OpenSEO collects anonymized telemetry for core usage events: heartbeats with aggregate counts (installs, users, projects, feature usage) tied to a random install ID, sent every 5 minutes during the first two hours after install, then at most once daily. No URLs, keywords, prompts, emails, or IP-derived location are collected, and idle installs send nothing.
+Run Your SEO collects anonymized telemetry for core usage events: heartbeats with aggregate counts (installs, users, projects, feature usage) tied to a random install ID, sent every 5 minutes during the first two hours after install, then at most once daily. No URLs, keywords, prompts, emails, or IP-derived location are collected, and idle installs send nothing.
 
-To disable it, set `OPENSEO_TELEMETRY_DISABLED=1` (or `DO_NOT_TRACK=1`) in `.env`, then run `docker compose up -d --force-recreate open-seo`.
+To disable it, set `RUN_YOUR_SEO_TELEMETRY_DISABLED=1` (or `DO_NOT_TRACK=1`) in `.env`, then run `docker compose up -d --force-recreate run-your-seo`.
 
 ## Pin to a specific image tag
 
-Set `OPEN_SEO_IMAGE` in `.env` and restart:
+Set `RUN_YOUR_SEO_IMAGE` in `.env` and restart:
 
 ```bash
-OPEN_SEO_IMAGE=ghcr.io/every-app/open-seo:v1.2.3
+RUN_YOUR_SEO_IMAGE=ghcr.io/rogerthenomad/run-your-seo:v1.2.3
 docker compose up -d
 ```
 
@@ -59,8 +67,8 @@ docker compose up -d
 If you are testing local code changes, build and run a local tag:
 
 ```bash
-docker build -f Dockerfile.selfhost -t open-seo:local .
-OPEN_SEO_IMAGE=open-seo:local docker compose up -d
+docker build -f Dockerfile.selfhost -t run-your-seo:local .
+RUN_YOUR_SEO_IMAGE=run-your-seo:local docker compose up -d
 ```
 
 ## Common commands
@@ -68,7 +76,7 @@ OPEN_SEO_IMAGE=open-seo:local docker compose up -d
 - Restart service after env changes:
 
 ```bash
-docker compose up -d open-seo
+docker compose up -d run-your-seo
 ```
 
 - Pull latest published image and restart:
@@ -104,5 +112,5 @@ encoded value of your DataForSEO email and API password in this format:
 If you changed `.env`, recreate the container so Compose reapplies it:
 
 ```bash
-docker compose up -d --force-recreate open-seo
+docker compose up -d --force-recreate run-your-seo
 ```

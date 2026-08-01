@@ -1,4 +1,4 @@
-# Contributing to OpenSEO
+# Contributing to Run Your SEO
 
 Contributions are very welcome.
 
@@ -6,7 +6,7 @@ Contributions are very welcome.
 - Open a PR if you want to implement a feature directly.
 - Community-driven improvements are prioritized, and high-quality PRs are encouraged.
 
-If you want to contribute but are unsure where to start, open an issue and describe what you want to build. You can also join the [Discord](https://discord.gg/c9uGs3cFXr) to talk through ideas first.
+If you want to contribute but are unsure where to start, open an issue and describe what you want to build. You can also [contact Capture That Media](https://www.capturethatmedia.com/contact) to talk through ideas first.
 
 ## Local development
 

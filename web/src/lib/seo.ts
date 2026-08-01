@@ -1,6 +1,7 @@
-const DEFAULT_SITE_URL = "https://openseo.so";
+const DEFAULT_SITE_URL = "https://seo.capturethatmedia.com";
 const DEFAULT_SOCIAL_IMAGE_PATH = "/social-card.png";
-const DEFAULT_SOCIAL_IMAGE_ALT = "OpenSEO product preview";
+const DEFAULT_SOCIAL_IMAGE_ALT =
+  "Run Your SEO by Capture That Media";
 
 export const SITE_URL = (
   process.env.SITE_URL ??
@@ -44,7 +45,7 @@ export function buildPageSeo({
     meta: [
       { title: fullTitle },
       ...(description ? [{ name: "description", content: description }] : []),
-      { property: "og:site_name", content: "OpenSEO" },
+      { property: "og:site_name", content: "Run Your SEO" },
       { property: "og:type", content: ogType },
       { property: "og:title", content: fullTitle },
       ...(description

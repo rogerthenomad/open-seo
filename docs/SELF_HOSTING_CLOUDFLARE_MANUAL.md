@@ -1,14 +1,14 @@
 # Cloudflare Self-Hosting: Manual Deploy with Wrangler
 
-Use this flow if the [Deploy to Cloudflare button](./SELF_HOSTING_CLOUDFLARE.md) fails with `Cannot provision a KV Namespace with the title "open-seo" because it already exists`. The reliable path is to create Cloudflare resources yourself, put their IDs into `wrangler.jsonc`, then deploy with Wrangler.
+Use this flow if the [Deploy to Cloudflare button](./SELF_HOSTING_CLOUDFLARE.md) fails with `Cannot provision a KV Namespace with the title "run-your-seo" because it already exists`. The reliable path is to create Cloudflare resources yourself, put their IDs into `wrangler.jsonc`, then deploy with Wrangler.
 
-## 1) Clone your OpenSEO repo
+## 1) Clone your Run Your SEO repo
 
-Fork `every-app/open-seo` on GitHub if you want a repo you control for future updates, then clone it locally:
+Fork `rogerthenomad/Run-Your-SEO` on GitHub if you want a repo you control for future updates, then clone it locally:
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USER/open-seo.git
-cd open-seo
+git clone https://github.com/YOUR_GITHUB_USER/run-your-seo.git
+cd run-your-seo
 corepack enable
 pnpm install
 ```
@@ -16,8 +16,8 @@ pnpm install
 If you do not need a fork, clone the upstream repo instead:
 
 ```bash
-git clone https://github.com/every-app/open-seo.git
-cd open-seo
+git clone https://github.com/rogerthenomad/Run-Your-SEO.git
+cd run-your-seo
 corepack enable
 pnpm install
 ```
@@ -33,10 +33,10 @@ pnpm exec wrangler login
 Use unique names so they do not collide with resources that already exist in your Cloudflare account. Replace `YOUR_SUFFIX` with something unique to you, for example your GitHub username or company name.
 
 ```bash
-pnpm exec wrangler kv namespace create open-seo-YOUR_SUFFIX
-pnpm exec wrangler kv namespace create open-seo-oauth-YOUR_SUFFIX
-pnpm exec wrangler d1 create open-seo-YOUR_SUFFIX
-pnpm exec wrangler r2 bucket create open-seo-YOUR_SUFFIX
+pnpm exec wrangler kv namespace create run-your-seo-YOUR_SUFFIX
+pnpm exec wrangler kv namespace create run-your-seo-oauth-YOUR_SUFFIX
+pnpm exec wrangler d1 create run-your-seo-YOUR_SUFFIX
+pnpm exec wrangler r2 bucket create run-your-seo-YOUR_SUFFIX
 ```
 
 Save the IDs and names printed by Wrangler:
@@ -64,14 +64,14 @@ Open `wrangler.jsonc` and replace only your Cloudflare resource values. Keep the
 "d1_databases": [
   {
     "binding": "DB",
-    "database_name": "open-seo-YOUR_SUFFIX",
+    "database_name": "run-your-seo-YOUR_SUFFIX",
     "database_id": "YOUR_D1_DATABASE_ID",
     "migrations_dir": "drizzle",
   },
 ],
 "r2_buckets": [
   {
-    "bucket_name": "open-seo-YOUR_SUFFIX",
+    "bucket_name": "run-your-seo-YOUR_SUFFIX",
     "binding": "R2",
   },
 ],
@@ -89,7 +89,7 @@ pnpm run deploy
 
 In the Cloudflare dashboard:
 
-1. Go to `Compute` -> `Workers & Pages` -> your OpenSEO Worker.
+1. Go to `Compute` -> `Workers & Pages` -> your Run Your SEO Worker.
 2. Open `Settings`.
 3. In `Domains & Routes`, enable `Cloudflare Access` for the `workers.dev` route.
 4. Save the values shown by Cloudflare Access.
@@ -109,17 +109,17 @@ Use the domain from `JWKS_URL` for `TEAM_DOMAIN`, for example `https://your-team
 DataForSEO API responses are cached in R2 under the `dataforseo-cache/` prefix. This step is optional, but recommended to automatically clean up expired cache objects:
 
 ```bash
-pnpm exec wrangler r2 bucket lifecycle add open-seo-YOUR_SUFFIX dataforseo-cache-expiry dataforseo-cache/ --expire-days 7
+pnpm exec wrangler r2 bucket lifecycle add run-your-seo-YOUR_SUFFIX dataforseo-cache-expiry dataforseo-cache/ --expire-days 7
 ```
 
 ## 8) Validate setup
 
 1. Open your Worker URL again.
 2. Sign in with Cloudflare Access.
-3. OpenSEO should load after login.
+3. Run Your SEO should load after login.
 
 If login fails, re-check the three secrets, the Access toggle, and the binding values in `wrangler.jsonc`.
 
 ## Next steps
 
-See [Operations](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md) for connecting MCP clients, updating to the latest OpenSEO version, and giving teammates access.
+See [Operations](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md) for connecting MCP clients, updating to the latest Run Your SEO version, and giving teammates access.

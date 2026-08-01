@@ -1,36 +1,36 @@
 ---
-title: "Set up OpenSEO MCP"
-description: "Connect OpenSEO MCP to Claude, Codex, and other AI clients."
+title: "Set up Run Your SEO MCP"
+description: "Connect Run Your SEO MCP to Claude, Codex, and other AI clients."
 ---
 
-OpenSEO MCP lets compatible AI clients call OpenSEO tools for keyword research, SERP inspection, local business research, competitive search intelligence, domain research, backlink overview, saved keywords, rank tracking, and Google Search Console performance and URL inspection.
+Run Your SEO MCP lets compatible AI clients call Run Your SEO tools for keyword research, SERP inspection, local business research, competitive search intelligence, domain research, backlink overview, saved keywords, rank tracking, and Google Search Console performance and URL inspection.
 
 The hosted MCP server URL is:
 
 ```txt
-https://app.openseo.so/mcp
+https://seo-app.capturethatmedia.com/mcp
 ```
 
-The first connection sends you through OpenSEO login. After authorization, your MCP client can call OpenSEO tools with the project context and account scopes you approved.
+The first connection sends you through Run Your SEO login. After authorization, your MCP client can call Run Your SEO tools with the project context and account scopes you approved.
 
-For the most current setup UI and a copyable endpoint, open [AI & MCP in OpenSEO](https://app.openseo.so/ai).
+For the most current setup UI and a copyable endpoint, open [AI & MCP in Run Your SEO](https://seo-app.capturethatmedia.com/ai).
 
 ## Claude Code
 
-Use user scope to make OpenSEO available across projects. Use local scope for the current repository.
+Use user scope to make Run Your SEO available across projects. Use local scope for the current repository.
 
 ```bash
-claude mcp add --transport http --scope user openseo https://app.openseo.so/mcp
+claude mcp add --transport http --scope user runyourseo https://seo-app.capturethatmedia.com/mcp
 ```
 
-After adding the server, approve the OpenSEO login when prompted.
+After adding the server, approve the Run Your SEO login when prompted.
 
 ## Claude Desktop
 
 1. Open Settings -> Connectors.
 2. Click Add custom connector.
-3. Paste `https://app.openseo.so/mcp`.
-4. Approve the OpenSEO login when prompted.
+3. Paste `https://seo-app.capturethatmedia.com/mcp`.
+4. Approve the Run Your SEO login when prompted.
 
 Claude Desktop custom connectors require a Claude plan that supports custom connectors.
 
@@ -43,21 +43,21 @@ Claude Desktop custom connectors require a Claude plan that supports custom conn
 ```json
 {
   "mcpServers": {
-    "openseo": {
-      "url": "https://app.openseo.so/mcp"
+    "runyourseo": {
+      "url": "https://seo-app.capturethatmedia.com/mcp"
     }
   }
 }
 ```
 
-4. Approve the OpenSEO login when prompted.
+4. Approve the Run Your SEO login when prompted.
 
 ## Codex CLI
 
 Run this in your terminal:
 
 ```bash
-codex mcp add openseo --url https://app.openseo.so/mcp
+codex mcp add runyourseo --url https://seo-app.capturethatmedia.com/mcp
 ```
 
 Approve the login when prompted.
@@ -66,12 +66,12 @@ Approve the login when prompted.
 
 1. Open Settings -> Integrations & MCP.
 2. Click Add your own.
-3. Paste `https://app.openseo.so/mcp`.
-4. Approve the OpenSEO login when prompted.
+3. Paste `https://seo-app.capturethatmedia.com/mcp`.
+4. Approve the Run Your SEO login when prompted.
 
 ## Available tools
 
-OpenSEO MCP exposes tools for SEO research workflows:
+Run Your SEO MCP exposes tools for SEO research workflows:
 
 - Research keywords with volume, difficulty, and CPC.
 - Fetch live Google organic SERP results for keywords.
@@ -79,8 +79,8 @@ OpenSEO MCP exposes tools for SEO research workflows:
 - Compare SERP competitors across a supplied keyword set.
 - Search local businesses near a coordinate, fetch one Maps or Local Finder SERP, and read Google Business Q&A when needed.
 - Hydrate keywords with search volume, difficulty, intent, CPC, and trends.
-- List saved keywords from an OpenSEO project.
-- Save useful keywords back to OpenSEO.
+- List saved keywords from an Run Your SEO project.
+- Save useful keywords back to Run Your SEO.
 - Read rank tracker configs and latest keyword positions.
 - Summarize a domain's organic footprint.
 - Find keywords a domain already ranks for.
@@ -90,7 +90,7 @@ OpenSEO MCP exposes tools for SEO research workflows:
 
 ## What to do after setup
 
-Once OpenSEO MCP is connected, [set up OpenSEO Agent Skills](/docs/skills/setup). MCP gives your agent access to OpenSEO data. Skills are separate `SKILL.md` files that tell your agent how to use that data for specific SEO jobs.
+Once Run Your SEO MCP is connected, [set up Run Your SEO Agent Skills](/docs/skills/setup). MCP gives your agent access to Run Your SEO data. Skills are separate `SKILL.md` files that tell your agent how to use that data for specific SEO jobs.
 
 Start with one focused workflow instead of asking your agent to "do SEO" broadly.
 
@@ -104,8 +104,8 @@ Start with one focused workflow instead of asking your agent to "do SEO" broadly
 
 ## Troubleshooting
 
-If your client cannot connect, check that the server URL is exactly `https://app.openseo.so/mcp`.
+If your client cannot connect, check that the server URL is exactly `https://seo-app.capturethatmedia.com/mcp`.
 
-If authorization fails, disconnect the OpenSEO server in your client, add it again, and repeat the login flow.
+If authorization fails, disconnect the Run Your SEO server in your client, add it again, and repeat the login flow.
 
-If your agent cannot find a project, ask it to list OpenSEO projects first and use the returned project ID in later tool calls.
+If your agent cannot find a project, ask it to list Run Your SEO projects first and use the returned project ID in later tool calls.

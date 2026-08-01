@@ -124,9 +124,10 @@ export function Sidebar({ projectId, onNavigate, onClose }: SidebarProps) {
         <Link
           to="/"
           onClick={onNavigate}
-          className="text-base font-semibold text-base-content"
+          className="flex items-center gap-2 text-base font-semibold text-base-content"
         >
-          OpenSEO
+          <img src="/brand/ctm-logo-mark.png" alt="" className="h-5 w-auto" />
+          <span>Run Your SEO</span>
         </Link>
         {onClose ? (
           <button

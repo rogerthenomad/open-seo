@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "open-seo-landing",
+  "name": "run-your-seo-landing",
   "compatibility_date": "2026-02-19",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
@@ -17,19 +17,21 @@
       "invocation_logs": true,
     },
   },
-  "routes": [
-    {
-      "pattern": "openseo.so",
-      "custom_domain": true,
-    },
-    {
-      "pattern": "www.openseo.so",
-      "custom_domain": true,
-    },
-  ],
+  // Free first: with routes commented out, `pnpm run deploy` serves the site
+  // on the account's free workers.dev address with no DNS setup at all.
+  // When capturethatmedia.com is added as a zone in the deploying Cloudflare
+  // account, uncomment this block and redeploy to go live at
+  // seo.capturethatmedia.com. No www alias: www.seo.capturethatmedia.com is a
+  // second level subdomain that universal SSL does not cover.
+  // "routes": [
+  //   {
+  //     "pattern": "seo.capturethatmedia.com",
+  //     "custom_domain": true,
+  //   },
+  // ],
   "env": {
     "preview": {
-      "name": "open-seo-landing-preview",
+      "name": "run-your-seo-landing-preview",
       "workers_dev": true,
       "preview_urls": true,
     },

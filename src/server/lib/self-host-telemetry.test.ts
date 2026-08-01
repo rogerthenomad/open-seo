@@ -122,7 +122,7 @@ describe("maybeSendSelfHostHeartbeat", () => {
   beforeEach(() => {
     vi.unstubAllEnvs();
     vi.stubEnv("AUTH_MODE", "cloudflare_access");
-    vi.stubEnv("OPENSEO_TELEMETRY_DISABLED", "");
+    vi.stubEnv("RUN_YOUR_SEO_TELEMETRY_DISABLED", "");
     vi.stubEnv("DO_NOT_TRACK", "");
   });
 
@@ -136,8 +136,8 @@ describe("maybeSendSelfHostHeartbeat", () => {
     expect(harness.sendHeartbeat).not.toHaveBeenCalled();
   });
 
-  it("does not send when OPENSEO_TELEMETRY_DISABLED is set", async () => {
-    vi.stubEnv("OPENSEO_TELEMETRY_DISABLED", "1");
+  it("does not send when RUN_YOUR_SEO_TELEMETRY_DISABLED is set", async () => {
+    vi.stubEnv("RUN_YOUR_SEO_TELEMETRY_DISABLED", "1");
     const harness = createHarness();
 
     await runHeartbeat(harness);

@@ -1,6 +1,6 @@
 services:
-  open-seo:
-    image: ${OPEN_SEO_IMAGE:-ghcr.io/every-app/open-seo:latest}
+  run-your-seo:
+    image: ${RUN_YOUR_SEO_IMAGE:-ghcr.io/rogerthenomad/run-your-seo:latest}
     restart: unless-stopped
     # Anonymous usage heartbeat controls: docs/SELF_HOSTING_DOCKER.md#telemetry
     environment:
@@ -9,7 +9,7 @@ services:
       - PORT=${PORT:-3001}
       - ALLOWED_HOST=${ALLOWED_HOST:-}
       - AUTH_MODE=local_noauth
-      - OPENSEO_TELEMETRY_DISABLED=${OPENSEO_TELEMETRY_DISABLED:-}
+      - RUN_YOUR_SEO_TELEMETRY_DISABLED=${RUN_YOUR_SEO_TELEMETRY_DISABLED:-}
       - DO_NOT_TRACK=${DO_NOT_TRACK:-}
       - DATAFORSEO_API_KEY=${DATAFORSEO_API_KEY}
       # Optional: Google Search Console. See
@@ -21,6 +21,6 @@ services:
     ports:
       - "127.0.0.1:${PORT:-3001}:${PORT:-3001}"
     volumes:
-      - open_seo_data:/app/.wrangler
+      - run_your_seo_data:/app/.wrangler
 volumes:
-  open_seo_data:
+  run_your_seo_data:

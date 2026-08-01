@@ -30,7 +30,7 @@ import {
 } from "@/server/mcp/tools/search-console-tools";
 import { whoamiTool } from "@/server/mcp/tools/whoami";
 import { discoverSiteUrls, readPages, readSite } from "@/server/lib/scrape";
-import openSeoFactSheet from "@/server/features/onboarding/openseo-fact-sheet.md?raw";
+import runYourSeoFactSheet from "@/server/features/onboarding/runyourseo-fact-sheet.md?raw";
 
 // SAM reads more of a site than the onboarding preview: enough pages to work
 // out what a business does, sells, and positions against on its own.
@@ -173,7 +173,7 @@ function scrapeTools(projectDomain: string | null): ToolSet {
 
 /**
  * Builds SAM's tool surface as an AI SDK ToolSet: the full MCP toolset plus the
- * free site-reading tools. Every tool the OpenSEO MCP server exposes is
+ * free site-reading tools. Every tool the Run Your SEO MCP server exposes is
  * available; auth/billing context is carried on a synthetic `ToolExtra` the
  * handlers read exactly as they would on the real MCP route. DataForSEO spend
  * is metered inside the shared client, so tool calls draw down the org's
@@ -209,9 +209,9 @@ export function buildSamMcpTools(
     // made the agent narrate hosted/self-hosted framing at signed-in users).
     get_product_info: tool({
       description:
-        "The OpenSEO fact sheet: what the product does, plans/pricing, credit costs, integrations, MCP setup. Call before answering questions about OpenSEO itself. Uses no credits.",
+        "The Run Your SEO fact sheet: what the product does, plans/pricing, credit costs, integrations, MCP setup. Call before answering questions about Run Your SEO itself. Uses no credits.",
       inputSchema: z.object({}),
-      execute: () => Promise.resolve({ factSheet: openSeoFactSheet }),
+      execute: () => Promise.resolve({ factSheet: runYourSeoFactSheet }),
     }),
     ...scrapeTools(project.domain),
     whoami: adaptMcpTool(whoamiTool, extra, projectId),

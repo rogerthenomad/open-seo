@@ -115,7 +115,7 @@ function isNonProductionBuild() {
 
 async function telemetryIsDisabled() {
   if (await isHostedServerAuthMode()) return true;
-  if (await getOptionalEnvValue("OPENSEO_TELEMETRY_DISABLED")) return true;
+  if (await getOptionalEnvValue("RUN_YOUR_SEO_TELEMETRY_DISABLED")) return true;
   if (await getOptionalEnvValue("DO_NOT_TRACK")) return true;
   return false;
 }

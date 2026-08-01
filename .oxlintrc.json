@@ -16,7 +16,12 @@
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off",
+    "react/no-unstable-nested-components": "off",
+    "typescript/consistent-return": "off",
+    "typescript/no-unnecessary-type-conversion": "off",
+    "typescript/no-unnecessary-type-parameters": "off",
+    "eslint/no-underscore-dangle": "off",
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/no-array-sort": "error",
     "typescript/no-explicit-any": "error",
     "typescript/consistent-type-imports": "error",
