@@ -6,9 +6,9 @@ Run Your SEO is the SEO platform Capture That Media runs for its own clients. Ke
 
 Built and maintained by Roger Wong Won and the Capture That Media team in San Antonio, Texas.
 
-- Marketing site: [seo.capturethatmedia.com](https://seo.capturethatmedia.com)
-- Application: [seo-app.capturethatmedia.com](https://seo-app.capturethatmedia.com)
-- Production deploy runbook: [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md)
+- Marketing site: [seo.capturethatmedia.com](https://seo.capturethatmedia.com) (goes live in Phase 2 of the runbook)
+- Application: [seo-app.capturethatmedia.com](https://seo-app.capturethatmedia.com) (free workers.dev address first, domain in Phase 2)
+- Deploy runbook: [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md)
 
 ## Why it exists
 
@@ -45,10 +45,10 @@ Either path needs a DataForSEO API key for search data. See [`docs/DATAFORSEO_AP
 
 Local development: [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md).
 
-> **Going live.** The marketing route and app hostname are wired for
-> seo.capturethatmedia.com and seo-app.capturethatmedia.com. The one
-> prerequisite is that `capturethatmedia.com` is a zone in the deploying
-> Cloudflare account. See
+> **Going live.** The plan is free first: deploy both workers on the
+> Cloudflare free plan at workers.dev addresses with no DNS changes, then
+> attach seo.capturethatmedia.com and seo-app.capturethatmedia.com once the
+> zone is in the Cloudflare account. Both phases are in
 > [`docs/DEPLOY_SEO_CAPTURETHATMEDIA.md`](./docs/DEPLOY_SEO_CAPTURETHATMEDIA.md).
 
 ## About Capture That Media

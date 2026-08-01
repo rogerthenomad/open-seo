@@ -17,16 +17,18 @@
       "invocation_logs": true,
     },
   },
-  // The marketing site serves at seo.capturethatmedia.com. A `custom_domain`
-  // route fails the deploy unless capturethatmedia.com is a zone in the
-  // deploying Cloudflare account. No www alias: www.seo.capturethatmedia.com
-  // is a second level subdomain that universal SSL does not cover.
-  "routes": [
-    {
-      "pattern": "seo.capturethatmedia.com",
-      "custom_domain": true,
-    },
-  ],
+  // Free first: with routes commented out, `pnpm run deploy` serves the site
+  // on the account's free workers.dev address with no DNS setup at all.
+  // When capturethatmedia.com is added as a zone in the deploying Cloudflare
+  // account, uncomment this block and redeploy to go live at
+  // seo.capturethatmedia.com. No www alias: www.seo.capturethatmedia.com is a
+  // second level subdomain that universal SSL does not cover.
+  // "routes": [
+  //   {
+  //     "pattern": "seo.capturethatmedia.com",
+  //     "custom_domain": true,
+  //   },
+  // ],
   "env": {
     "preview": {
       "name": "run-your-seo-landing-preview",
